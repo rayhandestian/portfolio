@@ -1,0 +1,70 @@
+---
+// Navbar.astro - Centered navigation with theme toggle
+import ThemeToggle from './ThemeToggle.astro';
+
+const navLinks = [
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#about", label: "About" },
+];
+---
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <ul class="navbar-links">
+      {navLinks.map(link => (
+        <li><a href={link.href} class="link-hover">{link.label}</a></li>
+      ))}
+    </ul>
+    <ThemeToggle />
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+  }
+
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    width: 100%;
+    max-width: 1000px;
+  }
+
+  .navbar-links {
+    display: flex;
+    list-style: none;
+    gap: var(--space-xl);
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-links a {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 640px) {
+    .navbar-links {
+      gap: var(--space-lg);
+    }
+    
+    .navbar-links a {
+      font-size: 0.9rem;
+    }
+  }
+</style>

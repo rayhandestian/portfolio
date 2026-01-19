@@ -1,0 +1,21 @@
+---
+// index.astro - Main landing page
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Skills from '../components/Skills.astro';
+import About from '../components/About.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Rayhan | Portfolio">
+  <Navbar />
+  <main>
+    <Hero />
+    <Projects />
+    <Skills />
+    <About />
+  </main>
+  <Footer />
+</Layout>

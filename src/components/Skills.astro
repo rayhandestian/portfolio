@@ -1,0 +1,87 @@
+---
+// Skills.astro - Skills section with categories from LinkedIn
+const skillGroups = [
+  {
+    category: "Development",
+    skills: ["Full-Stack", "Web Development", "Mobile App Dev"],
+  },
+  {
+    category: "Cloud & DevOps",
+    skills: ["Cloud Computing", "Cloud Storage", "DNS Management", "Linux SysAdmin"],
+  },
+  {
+    category: "Data & AI",
+    skills: ["Machine Learning", "Data Science", "Database Admin"],
+  },
+  {
+    category: "Other",
+    skills: ["Cybersecurity", "IoT", "ERP"],
+  },
+];
+---
+
+<section class="section" id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">Areas of expertise.</p>
+    <div class="skills-container">
+      {skillGroups.map(group => (
+        <div class="skill-group">
+          <h3 class="skill-category">{group.category}</h3>
+          <div class="skill-items">
+            {group.skills.map(skill => (
+              <span class="skill-tag">{skill}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-lg);
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .skill-group {
+    padding: var(--space-lg);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    transition: border-color 0.2s ease;
+    height: 100%;
+    text-align: left;
+  }
+
+  .skill-group:hover {
+    border-color: var(--color-accent);
+  }
+
+  .skill-category {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .skill-tag {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+</style>
