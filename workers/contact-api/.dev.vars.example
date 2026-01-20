@@ -1,0 +1,8 @@
+# Local development overrides
+RECIPIENT_EMAIL=your-email@example.com
+SENDER_EMAIL=contact@yourdomain.com
+ALLOWED_ORIGIN=http://localhost:4321
+
+# Secrets (also need to be set here for local dev)
+RESEND_API_KEY=your-resend-api-key
+TURNSTILE_SECRET_KEY=your-turnstile-secret-key

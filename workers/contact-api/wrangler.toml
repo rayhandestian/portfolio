@@ -1,0 +1,14 @@
+name = "contact-api"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Override these in .dev.vars for local development
+# or set in Cloudflare dashboard for production
+RECIPIENT_EMAIL = "your-email@example.com"
+SENDER_EMAIL = "contact@yourdomain.com"
+ALLOWED_ORIGIN = "https://yourdomain.com"
+
+# Secrets (set via `wrangler secret put`):
+# - RESEND_API_KEY
+# - TURNSTILE_SECRET_KEY

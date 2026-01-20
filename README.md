@@ -52,6 +52,44 @@ All commands are run from the root of the project:
 | `npm run build`           | Build your production site to `./dist/`          |
 | `npm run preview`         | Preview your build locally, before deploying     |
 
+## 📬 Contact Form Setup
+
+The contact form uses a **Cloudflare Worker** backend with **Resend** for email delivery and **Cloudflare Turnstile** for spam protection.
+
+### 1. Environment Variables
+
+Copy `.env.example` to `.env` and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+| Variable | Description |
+|----------|-------------|
+| `PUBLIC_CONTACT_WORKER_URL` | Your deployed Cloudflare Worker URL |
+| `PUBLIC_TURNSTILE_SITE_KEY` | Cloudflare Turnstile site key |
+
+### 2. Deploy the Worker
+
+```bash
+cd workers/contact-api
+npm install
+
+# Set secrets
+npx wrangler secret put RESEND_API_KEY
+npx wrangler secret put TURNSTILE_SECRET_KEY
+
+# Deploy
+npx wrangler deploy
+```
+
+### 3. Configure Worker Variables
+
+Edit `workers/contact-api/wrangler.toml` to set:
+- `RECIPIENT_EMAIL` - Where to receive contact submissions
+- `SENDER_EMAIL` - From address (must be verified in Resend)
+- `ALLOWED_ORIGIN` - Your portfolio domain
+
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
