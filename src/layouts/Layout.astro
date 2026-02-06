@@ -4,13 +4,21 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  lang?: string;
 }
 
-const { title, description = "Rayhan - Computer Science Student, Full-Stack Developer, and Game Dev Enthusiast." } = Astro.props;
+const { 
+  title, 
+  description = "Rayhan - Computer Science Student, Full-Stack Developer, and Game Dev Enthusiast.",
+  lang = "en" 
+} = Astro.props;
+
+// Construct full canonical URLs for hreflang
+const siteUrl = "https://rayhan.dev"; // Replace with your actual domain or use Astro.url.origin if configured
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang={lang} data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,6 +28,12 @@ const { title, description = "Rayhan - Computer Science Student, Full-Stack Deve
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- i18n Alternate Links -->
+    <link rel="alternate" hreflang="en" href={siteUrl} />
+    <link rel="alternate" hreflang="id" href={`${siteUrl}/id/`} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl} />
+
     <title>{title}</title>
     <script is:inline>
       // Apply theme before render to avoid flash
