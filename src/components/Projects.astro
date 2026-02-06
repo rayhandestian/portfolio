@@ -74,6 +74,7 @@ const otherProjects = [
       { name: "TypeScript", icon: icons["TypeScript"] },
     ],
     github: "https://github.com/rayhandestian/cloudshort",
+    image: "/images/projects/cloudshort-1920-1080.webp",
   },
   {
     title: "UPer.li",
@@ -86,6 +87,7 @@ const otherProjects = [
     ],
     link: "https://uper.li/",
     github: "https://github.com/rayhandestian/uper-li",
+    image: "/images/projects/uper-li-1920-1080.webp",
   },
   {
     title: "QuickBites",
@@ -95,6 +97,7 @@ const otherProjects = [
       { name: "Firebase", icon: icons["Firebase"] },
     ],
     github: "https://github.com/rayhandestian/quickbites",
+    image: "/images/projects/quickbites-1920-1080.webp",
   },
   {
     title: "Smart Water Tank",
@@ -125,14 +128,17 @@ const otherProjects = [
     <p class="section-subtitle">A selection of work I'm proud of.</p>
     
     <div class="featured-group">
-      <div class="featured-header">
-        <div class="header-content">
+      <div class="featured-image">
+        <img src="/images/projects/kaizenmc-website-1920-1080.webp" alt="Kaizen Network Website" loading="lazy" />
+      </div>
+      <div class="featured-content">
+        <div class="featured-text">
           <h3 class="featured-title">Kaizen Network</h3>
           <p class="featured-description">
             Indonesian Minecraft Server Network. Built a full-stack e-commerce website, custom Java Spigot & Velocity plugins, various Skript scripts, Discord bots, and managed cloud infrastructure.
           </p>
         </div>
-        <a href="https://kaizenmc.id" target="_blank" rel="noopener" class="btn btn-outline">
+        <a href="https://kaizenmc.id" target="_blank" rel="noopener" class="btn btn-outline featured-btn">
           Visit Website
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
@@ -158,6 +164,7 @@ const otherProjects = [
           tags={project.tags}
           link={project.link}
           github={project.github}
+          image={project.image}
         />
       ))}
     </div>
@@ -166,17 +173,22 @@ const otherProjects = [
 
 <style>
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-lg);
-    justify-content: center;
+    column-count: 2;
+    column-gap: var(--space-lg);
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .projects-grid {
+      column-count: 1;
+    }
   }
 
   .featured-group {
-    background: var(--color-bg-card); /* Make it look like a card */
+    background: var(--color-bg-card);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    overflow: hidden;
     margin-bottom: var(--space-2xl);
     text-align: left;
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
@@ -187,46 +199,86 @@ const otherProjects = [
     border-color: var(--color-accent);
   }
 
-  .featured-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: var(--space-xl);
-    flex-wrap: wrap;
-    gap: var(--space-md);
+  .featured-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
 
-  .header-content {
-    max-width: 600px;
+  .featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  .featured-content {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 768px) {
+    .featured-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-xl);
+    }
+  }
+
+  .featured-text {
+    max-width: 700px;
   }
 
   .featured-title {
-    font-size: 1.75rem; /* Larger title for main card */
+    font-size: 1.75rem;
     color: var(--color-text-primary);
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-sm);
     font-weight: 600;
   }
 
   .featured-description {
     font-size: 1rem;
     color: var(--color-text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
+  }
+
+  .featured-btn {
+    flex-shrink: 0;
+  }
+
+  .kaizen-grid {
+    padding: 0 var(--space-xl) var(--space-xl);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+
+  @media (max-width: 1024px) {
+    .kaizen-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .kaizen-grid {
+      grid-template-columns: 1fr;
+      padding: 0 var(--space-md) var(--space-md);
+    }
   }
 
   .section-heading-small {
     font-size: 1.25rem;
     margin-bottom: var(--space-lg);
     color: var(--color-text-primary);
-    text-align: left; /* Align header to standard flow */
-    padding-left: var(--space-md); /* Match grid padding alignment roughly */
+    text-align: left;
+    padding-left: var(--space-md);
   }
   
   @media (max-width: 768px) {
-    .featured-header {
-      flex-direction: column;
-    }
-    
-    .featured-group {
+    .featured-content {
       padding: var(--space-md);
     }
     
