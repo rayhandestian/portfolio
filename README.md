@@ -18,6 +18,7 @@ This website is built with the following technologies:
 
 -   **Framework**: [Astro](https://astro.build) (Static Site Generation for performance)
 -   **Styling**: Vanilla CSS (Custom design system with CSS Variables)
+-   **Internationalization**: Multi-language support (English & Indonesian)
 -   **Icons**: SVG Icons (No external font libraries)
 -   **Deployment**: Static Export (Deployable to Vercel, Netlify, Github Pages, etc.)
 
@@ -30,12 +31,14 @@ The project structure is organized for modularity:
 -   `src/components/Projects.astro`: Dynamic project showcase with filtered tags.
 -   `src/components/Skills.astro`: Categorized list of technical skills (Development, Cloud, Data/AI).
 -   `src/components/About.astro`: Detailed background and contact links.
+-   `src/i18n/`: Internationalization utilities and translations.
 
 ## ✨ Featured Projects
 
 The portfolio includes detailed cards for my key projects:
 
 -   **Kaizen Network**: A massive Minecraft server network with complex backend infrastructure (Java, Redis, Next.js).
+-   **Cloudshort**: High-performance private URL shortener with sub-50ms redirects (Cloudflare Workers, Hono, React).
 -   **UPer.li**: A URL shortener with auth and analytics (Next.js, PostgreSQL).
 -   **QuickBites**: Mobile food ordering app (Flutter, Firebase).
 -   **Smart Water Tank**: IoT monitoring system (ESP32, Node.js).
