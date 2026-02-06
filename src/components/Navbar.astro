@@ -1,12 +1,20 @@
 ---
-// Navbar.astro - Centered navigation with theme toggle
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: 'en' | 'id';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 
 const navLinks = [
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "#projects", label: t('nav.projects') },
+  { href: "#skills", label: t('nav.skills') },
+  { href: "#about", label: t('nav.about') },
+  { href: "#contact", label: t('nav.contact') },
 ];
 ---
 
@@ -17,7 +25,10 @@ const navLinks = [
         <li><a href={link.href} class="link-hover">{link.label}</a></li>
       ))}
     </ul>
-    <ThemeToggle />
+    <div class="navbar-actions">
+      <LanguageSwitcher />
+      <ThemeToggle />
+    </div>
   </div>
 </nav>
 
@@ -39,7 +50,7 @@ const navLinks = [
   .navbar-inner {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: var(--space-xl);
     width: 100%;
     max-width: 1000px;
@@ -51,6 +62,12 @@ const navLinks = [
     gap: var(--space-xl);
     margin: 0;
     padding: 0;
+  }
+
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
   }
 
   .navbar-links a {

@@ -1,6 +1,13 @@
 ---
-// Projects.astro - Projects with tech stack icons from svgs.md
 import ProjectCard from './ProjectCard.astro';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: 'en' | 'id';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 
 // SVG icons extracted from svgs.md using Python
 const icons = {
@@ -31,8 +38,8 @@ const icons = {
 
 const kaizenProjects = [
   {
-    title: "Game Servers",
-    description: "Orchestrated complex gameplay systems involving a mixed survival mechanics, island-based economy, custom skills, guild management, interconnected scripts, and many more.",
+    title: t('projects.kaizen.game_servers.title'),
+    description: t('projects.kaizen.game_servers.description'),
     tags: [
       { name: "SpigotMC", icon: icons["SpigotMC"] },
       { name: "Skript", icon: null },
@@ -42,8 +49,8 @@ const kaizenProjects = [
     ],
   },
   {
-    title: "Web Platform",
-    description: "Full-stack brand website with game server status, leaderboards, e-commerce (store) platform with payment gateway integration, and a comprehensive admin dashboard.",
+    title: t('projects.kaizen.web_platform.title'),
+    description: t('projects.kaizen.web_platform.description'),
     tags: [
       { name: "Next.js", icon: icons["Next.js"] },
       { name: "TypeScript", icon: icons["TypeScript"] },
@@ -52,8 +59,8 @@ const kaizenProjects = [
     ],
   },
   {
-    title: "Infrastructure",
-    description: "High-availability infrastructure managing multiple game nodes, databases, automated deployments, to Discord bot orchestration.",
+    title: t('projects.kaizen.infrastructure.title'),
+    description: t('projects.kaizen.infrastructure.description'),
     tags: [
       { name: "Linux", icon: icons["Linux"] },
       { name: "Docker", icon: icons["Docker"] },
@@ -65,8 +72,8 @@ const kaizenProjects = [
 
 const otherProjects = [
   {
-    title: "Cloudshort",
-    description: "High-performance, private URL shortener powering kzn.li. Built on the Cloudflare ecosystem using Workers and Hono for sub-50ms redirects, with a React dashboard for link management.",
+    title: t('projects.list.cloudshort.title'),
+    description: t('projects.list.cloudshort.description'),
     tags: [
       { name: "Cloudflare", icon: icons["Cloudflare"] },
       { name: "Hono", icon: icons["Hono"] },
@@ -77,8 +84,8 @@ const otherProjects = [
     image: "/images/projects/cloudshort-1920-1080.webp",
   },
   {
-    title: "UPer.li",
-    description: "University-exclusive URL shortener for Universitas Pertamina. Features role-based auth, 2FA, QR codes, analytics dashboard, and Google Safe Browsing integration.",
+    title: t('projects.list.uperli.title'),
+    description: t('projects.list.uperli.description'),
     tags: [
       { name: "Next.js", icon: icons["Next.js"] },
       { name: "TypeScript", icon: icons["TypeScript"] },
@@ -90,8 +97,8 @@ const otherProjects = [
     image: "/images/projects/uper-li-1920-1080.webp",
   },
   {
-    title: "QuickBites",
-    description: "Mobile food ordering app featuring real-time order tracking, seller dashboards, and seamless Firebase backend integration.",
+    title: t('projects.list.quickbites.title'),
+    description: t('projects.list.quickbites.description'),
     tags: [
       { name: "Flutter", icon: icons["Flutter"] },
       { name: "Firebase", icon: icons["Firebase"] },
@@ -100,8 +107,8 @@ const otherProjects = [
     image: "/images/projects/quickbites-1920-1080.webp",
   },
   {
-    title: "Smart Water Tank",
-    description: "IoT solution for real-time water level monitoring and automated pump control using ESP32 and web app integration.",
+    title: t('projects.list.water_tank.title'),
+    description: t('projects.list.water_tank.description'),
     tags: [
       { name: "MicroPython", icon: icons["MicroPython"] },
       { name: "Node.js", icon: icons["Node.js"] },
@@ -110,8 +117,8 @@ const otherProjects = [
     github: "https://github.com/rayhandestian/KEL11-SMART-WATER-TANK-MONITORING-SYSTEM",
   },
   {
-    title: "Emotion Detection CNN",
-    description: "Deep learning model achieving 61% accuracy in detecting 7 facial emotion classes using Convolutional Neural Networks.",
+    title: t('projects.list.emotion_cnn.title'),
+    description: t('projects.list.emotion_cnn.description'),
     tags: [
       { name: "Python", icon: icons["Python"] },
       { name: "TensorFlow", icon: icons["TensorFlow"] },
@@ -124,8 +131,8 @@ const otherProjects = [
 
 <section class="section" id="projects">
   <div class="container">
-    <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">A selection of work I'm proud of.</p>
+    <h2 class="section-title">{t('projects.title')}</h2>
+    <p class="section-subtitle">{t('projects.subtitle')}</p>
     
     <div class="featured-group">
       <div class="featured-image">
@@ -133,13 +140,13 @@ const otherProjects = [
       </div>
       <div class="featured-content">
         <div class="featured-text">
-          <h3 class="featured-title">Kaizen Network</h3>
+          <h3 class="featured-title">{t('projects.featured.title')}</h3>
           <p class="featured-description">
-            Indonesian Minecraft Server Network. Built a full-stack e-commerce website, custom Java Spigot & Velocity plugins, various Skript scripts, Discord bots, and managed cloud infrastructure.
+            {t('projects.featured.description')}
           </p>
         </div>
         <a href="https://kaizenmc.id" target="_blank" rel="noopener" class="btn btn-outline featured-btn">
-          Visit Website
+          {t('projects.featured.button')}
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
       </div>

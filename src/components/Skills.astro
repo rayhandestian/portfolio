@@ -1,20 +1,28 @@
 ---
-// Skills.astro - Skills section with categories from LinkedIn
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: 'en' | 'id';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
 const skillGroups = [
   {
-    category: "Development",
+    category: t('skills.categories.development'),
     skills: ["Full-Stack", "Web Development", "Mobile App Dev"],
   },
   {
-    category: "Cloud & DevOps",
+    category: t('skills.categories.cloud'),
     skills: ["Cloud Computing", "Cloud Storage", "DNS Management", "Linux SysAdmin"],
   },
   {
-    category: "Data & AI",
+    category: t('skills.categories.data'),
     skills: ["Machine Learning", "Data Science", "Database Admin"],
   },
   {
-    category: "Other",
+    category: t('skills.categories.other'),
     skills: ["Cybersecurity", "IoT", "ERP"],
   },
 ];
@@ -22,8 +30,8 @@ const skillGroups = [
 
 <section class="section" id="skills">
   <div class="container">
-    <h2 class="section-title">Skills</h2>
-    <p class="section-subtitle">Areas of expertise.</p>
+    <h2 class="section-title">{t('skills.title')}</h2>
+    <p class="section-subtitle">{t('skills.subtitle')}</p>
     <div class="skills-container">
       {skillGroups.map(group => (
         <div class="skill-group">

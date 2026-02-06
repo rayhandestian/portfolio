@@ -1,11 +1,18 @@
 ---
-// Footer.astro - Simple footer
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: 'en' | 'id';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="footer">
   <div class="container">
-    <p class="footer-text">© {currentYear} Rayhan</p>
+    <p class="footer-text">{t('footer.copyright').replace('{year}', currentYear.toString())}</p>
   </div>
 </footer>
 

@@ -8,16 +8,18 @@ import Skills from '../components/Skills.astro';
 import About from '../components/About.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+
+const lang = "en";
 ---
 
-<Layout title="Rayhan | Portfolio">
-  <Navbar />
+<Layout title="Rayhan | Portfolio" lang={lang}>
+  <Navbar lang={lang} />
   <main>
-    <Hero />
-    <Projects />
-    <Skills />
-    <About />
-    <Contact />
+    <Hero lang={lang} />
+    <Projects lang={lang} />
+    <Skills lang={lang} />
+    <About lang={lang} />
+    <Contact lang={lang} />
   </main>
-  <Footer />
+  <Footer lang={lang} />
 </Layout>
