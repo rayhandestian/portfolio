@@ -14,14 +14,23 @@ const {
 } = Astro.props;
 
 const t = useTranslations(lang);
+const prompts: { label: string; starter: string }[] = t('contact.prompts');
 ---
 
 <section class="contact-section" id="contact">
   <div class="container">
     <h2 class="section-title">{t('contact.title')}</h2>
     <p class="section-subtitle">{t('contact.subtitle')}</p>
-    
+
     <div class="contact-form-wrapper">
+      <div class="contact-prompts" role="group" aria-label={t('contact.subtitle')}>
+        {prompts.map((p) => (
+          <button type="button" class="prompt-pill" data-starter={p.starter} aria-pressed="false">
+            {p.label}
+          </button>
+        ))}
+      </div>
+
       <form 
         id="contact-form" 
         class="contact-form" 
@@ -173,7 +182,44 @@ const t = useTranslations(lang);
   function validateEmail(email: string): boolean {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
-  
+
+  // Prompt pills: drop a starter sentence into the message box
+  const messageField = form.querySelector('#contact-message') as HTMLTextAreaElement;
+  const pills = Array.from(document.querySelectorAll<HTMLButtonElement>('.prompt-pill'));
+  const starters = pills.map(p => p.dataset.starter ?? '');
+
+  function findStarter(text: string): string | null {
+    return starters.find(s => s && text.startsWith(s)) ?? null;
+  }
+
+  function syncPills() {
+    const current = findStarter(messageField.value);
+    pills.forEach(p => {
+      const active = current !== null && p.dataset.starter === current;
+      p.classList.toggle('active', active);
+      p.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const starter = pill.dataset.starter ?? '';
+      const text = messageField.value;
+      const existing = findStarter(text);
+      const rest = existing ? text.slice(existing.length) : text;
+
+      // Clicking the active pill again removes its starter, keeping anything typed after it
+      messageField.value = existing === starter ? rest.trimStart() : starter + rest.trimStart();
+
+      syncPills();
+      messageField.focus();
+      messageField.setSelectionRange(messageField.value.length, messageField.value.length);
+    });
+  });
+
+  messageField.addEventListener('input', syncPills);
+  form.addEventListener('reset', () => setTimeout(syncPills, 0));
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     hideStatus();
@@ -252,6 +298,50 @@ const t = useTranslations(lang);
   .contact-form-wrapper {
     max-width: 520px;
     margin: var(--space-lg) auto 0;
+  }
+
+  .contact-prompts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .prompt-pill {
+    padding: 0.5rem 0.95rem;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-text-secondary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .prompt-pill:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-text-muted);
+  }
+
+  .prompt-pill:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .prompt-pill.active {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: rgba(139, 124, 247, 0.1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .prompt-pill {
+      transition: none;
+    }
   }
 
   .contact-form {
