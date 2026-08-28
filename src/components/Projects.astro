@@ -70,7 +70,39 @@ const kaizenProjects = [
   },
 ];
 
+const featuredStats = [
+  { value: "150", label: t('projects.featured.stats.players') },
+  { value: "100,000+", label: t('projects.featured.stats.accounts') },
+  { value: "99.9%", label: t('projects.featured.stats.uptime') },
+];
+
 const otherProjects = [
+  {
+    title: t('projects.list.thesis.title'),
+    description: t('projects.list.thesis.description'),
+    tags: [
+      { name: "Next.js", icon: icons["Next.js"] },
+      { name: "TypeScript", icon: icons["TypeScript"] },
+      { name: "Skript", icon: null },
+      { name: "Privacy by Design", icon: null },
+    ],
+    extraLinks: [
+      { href: "https://perpustakaan.universitaspertamina.ac.id/xmlui/handle/123456789/16378", label: t('projects.list.thesis.link_thesis') },
+      { href: "/docs/poster-tugas-akhir.pdf", label: t('projects.list.thesis.link_poster') },
+    ],
+  },
+  {
+    title: t('projects.list.top_mc.title'),
+    description: t('projects.list.top_mc.description'),
+    tags: [
+      { name: "Next.js", icon: icons["Next.js"] },
+      { name: "React", icon: icons["React"] },
+      { name: "TypeScript", icon: icons["TypeScript"] },
+      { name: "Data Visualization", icon: null },
+    ],
+    link: "https://kaizenmc.id/blog/server-minecraft-indonesia-terbaik",
+    image: "/images/projects/top-mc-servers-1920-1080.webp",
+  },
   {
     title: t('projects.list.cloudshort.title'),
     description: t('projects.list.cloudshort.description'),
@@ -105,6 +137,20 @@ const otherProjects = [
     ],
     github: "https://github.com/rayhandestian/quickbites",
     image: "/images/projects/quickbites-1920-1080.webp",
+  },
+  {
+    title: t('projects.list.packvertise.title'),
+    description: t('projects.list.packvertise.description'),
+    tags: [
+      { name: "Startup", icon: null },
+      { name: "Business Pitching", icon: null },
+      { name: "MBKM", icon: null },
+    ],
+    link: "https://packvertise.id/",
+    image: "/images/projects/packvertise-1920-1080.webp",
+    extraLinks: [
+      { href: "https://perpustakaan.universitaspertamina.ac.id/xmlui/handle/123456789/16487", label: t('projects.list.packvertise.link_report') },
+    ],
   },
   {
     title: t('projects.list.water_tank.title'),
@@ -144,6 +190,14 @@ const otherProjects = [
           <p class="featured-description">
             {t('projects.featured.description')}
           </p>
+          <div class="featured-stats">
+            {featuredStats.map(stat => (
+              <div class="featured-stat">
+                <span class="featured-stat-value">{stat.value}</span>
+                <span class="featured-stat-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
         <a href="https://kaizenmc.id" target="_blank" rel="noopener" class="btn btn-outline featured-btn">
           {t('projects.featured.button')}
@@ -172,6 +226,7 @@ const otherProjects = [
           link={project.link}
           github={project.github}
           image={project.image}
+          extraLinks={project.extraLinks}
         />
       ))}
     </div>
@@ -250,6 +305,33 @@ const otherProjects = [
     font-size: 1rem;
     color: var(--color-text-secondary);
     line-height: 1.7;
+  }
+
+  .featured-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg) var(--space-xl);
+    margin-top: var(--space-lg);
+  }
+
+  .featured-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .featured-stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+  }
+
+  .featured-stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
   }
 
   .featured-btn {

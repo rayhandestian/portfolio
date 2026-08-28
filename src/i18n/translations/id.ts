@@ -2,6 +2,7 @@ export const id = {
     nav: {
         projects: "Proyek",
         skills: "Keahlian",
+        achievements: "Pencapaian",
         about: "Tentang",
         contact: "Kontak",
         switch_lang: "English",
@@ -10,18 +11,24 @@ export const id = {
         greeting: "Halo, saya",
         name: "Rayhan Destian",
         tagline: "Mahasiswa Ilmu Komputer · Full-Stack Developer · Penggemar Game Dev",
-        description: "Membangun pengalaman Minecraft yang imersif dan aplikasi web modern.",
+        description: "Pendiri Kaizen Network, jaringan server Minecraft dengan 100.000+ pemain terdaftar. Saya membangun pengalaman game yang imersif dan aplikasi web modern.",
         cta_email: "hi@rayhan.ch",
         cta_github: "GitHub",
         cta_linkedin: "LinkedIn",
+        cta_resume: "Resume",
     },
     projects: {
         title: "Proyek",
         subtitle: "Kumpulan karya yang saya banggakan.",
         featured: {
             title: "Kaizen Network",
-            description: "Jaringan Server Minecraft Indonesia. Membangun situs web e-commerce full-stack, plugin Java Spigot & Velocity kustom, berbagai skrip Skript, bot Discord, dan mengelola infrastruktur cloud.",
+            description: "Jaringan Server Minecraft Indonesia, didirikan dan dijalankan sendiri sejak 2022. Membangun situs web e-commerce full-stack, plugin Java Spigot & Velocity kustom, berbagai skrip Skript, bot Discord, dan mengelola infrastruktur cloud.",
             button: "Kunjungi Situs",
+            stats: {
+                players: "Peak concurrent players",
+                accounts: "Akun terdaftar",
+                uptime: "Uptime",
+            },
         },
         kaizen: {
             game_servers: {
@@ -38,6 +45,16 @@ export const id = {
             }
         },
         list: {
+            thesis: {
+                title: "Kepatuhan UU PDP untuk Kaizen Network",
+                description: "Tugas akhir: kerangka tujuh langkah untuk menerjemahkan UU Pelindungan Data Pribadi (UU PDP) ke kebutuhan teknis, diterapkan pada 107.000+ akun Kaizen Network. Membangun modul Privacy by Design: dialog consent in-game, portal Next.js untuk akses, unduh, dan hapus data, audit trail append-only, retensi otomatis, dan pengamanan API. 9 dari 9 item kepatuhan terpenuhi dan 15 test case lulus di produksi.",
+                link_thesis: "Baca tugas akhir",
+                link_poster: "Lihat poster",
+            },
+            top_mc: {
+                title: "Top MC Servers Indonesia",
+                description: "Sejarah peringkat interaktif server Minecraft terbaik Indonesia dari 2012 hingga 2026, dibangun ulang dari 49 snapshot Wayback Machine yang mencakup 150+ server. Bump chart kustom yang dibagi dua era, lengkap dengan dataset yang bisa diunduh. Diterbitkan sebagai halaman blog Kaizen Network.",
+            },
             cloudshort: {
                 title: "Cloudshort",
                 description: "Penyingkat URL pribadi berkinerja tinggi yang mentenagai kzn.li. Dibangun di ekosistem Cloudflare menggunakan Workers dan Hono untuk pengalihan di bawah 50ms, dengan dashboard React untuk manajemen tautan.",
@@ -49,6 +66,11 @@ export const id = {
             quickbites: {
                 title: "QuickBites",
                 description: "Aplikasi pemesanan makanan seluler yang menampilkan pelacakan pesanan real-time, dashboard penjual, dan integrasi backend Firebase yang mulus.",
+            },
+            packvertise: {
+                title: "Packvertise",
+                description: "Startup iklan yang saya dirikan sendiri, menempatkan iklan brand di kemasan makanan sekali pakai: pengiklan menjangkau pelanggan saat mereka makan, dan penjual makanan mendapat kemasan gratis plus bagi hasil. Memproduksi dan mendistribusikan 1.000 kemasan bermerek dengan pelacakan QR lewat dua tenant kantin kampus, plus satu kampanye pilot untuk klien. Top 7 dari 31 tim di UPER CASE IB 2025 (MBKM, Universitas Pertamina), lolos 2 dari 3 babak pitching.",
+                link_report: "Laporan MBKM",
             },
             water_tank: {
                 title: "Smart Water Tank",
@@ -62,20 +84,40 @@ export const id = {
     },
     skills: {
         title: "Keahlian",
-        subtitle: "Bidang keahlian saya.",
+        subtitle: "Stack yang saya pakai.",
         categories: {
-            development: "Pengembangan",
-            cloud: "Cloud & DevOps",
-            data: "Data & AI",
+            languages: "Bahasa",
+            frameworks: "Framework",
+            game_dev: "Game Dev",
+            databases: "Database",
+            devops: "DevOps & Cloud",
             other: "Lainnya",
+        }
+    },
+    achievements: {
+        title: "Pencapaian",
+        subtitle: "Pengakuan di luar kode yang dirilis.",
+        items: {
+            cve: {
+                date: "Agustus 2026",
+                title: "Microsoft Security Response Center",
+                description: "Diakui Microsoft sebagai penemu CVE-2026-47285, kerentanan command injection information disclosure di Visual Studio Code dengan rating Important (CVSS 6.5).",
+                link: "Lihat advisory",
+            },
+            upercase: {
+                date: "2025",
+                title: "UPER CASE IB 2025",
+                description: "Top 7 dari 31 tim bersama Packvertise di program inkubasi MBKM Universitas Pertamina, lolos 2 dari 3 babak pitching sebagai pendiri tunggal.",
+                link: "Lihat sertifikat",
+            },
         }
     },
     about: {
         title: "Tentang",
         paragraphs: [
-            "Saya adalah mahasiswa Ilmu Komputer di <strong>Universitas Pertamina</strong> dengan antusiasme untuk membangun sesuatu yang hidup di internet dan dalam game.",
-            "Saya adalah arsitek teknis tunggal di balik <strong>Kaizen Network</strong>, jaringan server Minecraft Indonesia di mana saya menangani hampir segala hal teknis mulai dari skrip game dan pengembangan plugin kustom hingga pengembangan web full-stack dan manajemen infrastruktur cloud.",
-            "Saya juga terkadang menjelajahi AI/ML, mengulik keamanan siber, atau berkecimpung di IoT."
+            "Saya adalah mahasiswa tingkat akhir Ilmu Komputer di <strong>Universitas Pertamina</strong>, lulus tahun 2026 dengan tugas akhir tentang kepatuhan UU PDP pada platform game online. Saya suka membangun sesuatu yang hidup di internet dan dalam game.",
+            "Saya adalah pendiri sekaligus arsitek teknis tunggal di balik <strong>Kaizen Network</strong>, jaringan server Minecraft Indonesia dengan 100.000+ akun terdaftar dan puncak 150 pemain bersamaan. Saya menangani hampir segala hal teknis di sana, mulai dari skrip game dan pengembangan plugin kustom hingga pengembangan web full-stack dan manajemen infrastruktur cloud, dengan uptime 99,9%.",
+            "Saya juga mendirikan <strong>Packvertise</strong>, startup iklan di kemasan makanan yang masuk top 7 dari 31 tim di UPER CASE IB 2025. Di luar itu, saya menjelajahi AI/ML, berkecimpung di IoT, dan melakukan riset keamanan, termasuk temuan kerentanan di Visual Studio Code yang diakui Microsoft."
         ]
     },
     contact: {
