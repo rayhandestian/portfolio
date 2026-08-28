@@ -123,7 +123,7 @@ const prompts: { label: string; starter: string }[] = t('contact.prompts');
       </form>
 
       <p class="contact-email-note">
-        {t('contact.email_note')} <a href="mailto:hi@rayhan.ch" class="link-hover">hi@rayhan.ch</a>
+        {t('contact.email_note')} <a href="mailto:hi@rayhan.ch">hi@rayhan.ch</a>
       </p>
     </div>
   </div>
@@ -191,15 +191,19 @@ const prompts: { label: string; starter: string }[] = t('contact.prompts');
   const messageField = form.querySelector('#contact-message') as HTMLTextAreaElement;
   const pills = Array.from(document.querySelectorAll<HTMLButtonElement>('.prompt-pill'));
   const starters = pills.map(p => p.dataset.starter ?? '');
+  const maxLength = messageField.maxLength > 0 ? messageField.maxLength : Infinity;
 
-  function findStarter(text: string): string | null {
-    return starters.find(s => s && text.startsWith(s)) ?? null;
-  }
+  // The starter inserted by a pill click. Only this text is treated as removable;
+  // anything the visitor typed themselves is left alone.
+  // On load, adopt a starter if the browser restored a message that begins with one.
+  let activeStarter: string | null = starters.find(s => s && messageField.value.startsWith(s)) ?? null;
 
   function syncPills() {
-    const current = findStarter(messageField.value);
+    if (activeStarter !== null && !messageField.value.startsWith(activeStarter)) {
+      activeStarter = null;
+    }
     pills.forEach(p => {
-      const active = current !== null && p.dataset.starter === current;
+      const active = activeStarter !== null && p.dataset.starter === activeStarter;
       p.classList.toggle('active', active);
       p.setAttribute('aria-pressed', String(active));
     });
@@ -209,11 +213,18 @@ const prompts: { label: string; starter: string }[] = t('contact.prompts');
     pill.addEventListener('click', () => {
       const starter = pill.dataset.starter ?? '';
       const text = messageField.value;
-      const existing = findStarter(text);
-      const rest = existing ? text.slice(existing.length) : text;
+      const rest = activeStarter !== null && text.startsWith(activeStarter)
+        ? text.slice(activeStarter.length).trimStart()
+        : text.trimStart();
 
-      // Clicking the active pill again removes its starter, keeping anything typed after it
-      messageField.value = existing === starter ? rest.trimStart() : starter + rest.trimStart();
+      if (activeStarter === starter) {
+        // Clicking the active pill again removes its starter, keeping anything typed after it
+        activeStarter = null;
+        messageField.value = rest;
+      } else {
+        activeStarter = starter;
+        messageField.value = (starter + rest).slice(0, maxLength);
+      }
 
       syncPills();
       messageField.focus();
@@ -222,7 +233,8 @@ const prompts: { label: string; starter: string }[] = t('contact.prompts');
   });
 
   messageField.addEventListener('input', syncPills);
-  form.addEventListener('reset', () => setTimeout(syncPills, 0));
+  form.addEventListener('reset', () => setTimeout(() => { activeStarter = null; syncPills(); }, 0));
+  syncPills();
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -364,6 +376,11 @@ const prompts: { label: string; starter: string }[] = t('contact.prompts');
     color: var(--color-text-secondary);
     text-decoration: underline;
     text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .contact-email-note a:hover {
+    color: var(--color-accent);
   }
 
   .form-row {
