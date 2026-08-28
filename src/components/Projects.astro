@@ -40,33 +40,36 @@ const kaizenProjects = [
   {
     title: t('projects.kaizen.game_servers.title'),
     description: t('projects.kaizen.game_servers.description'),
-    tags: [
+    stack: [
       { name: "SpigotMC", icon: icons["SpigotMC"] },
       { name: "Skript", icon: null },
       { name: "Java", icon: null },
       { name: "MariaDB", icon: icons["MariaDB"] },
       { name: "Redis", icon: icons["Redis"] },
     ],
+    tags: ["Minecraft", "Game Dev"],
   },
   {
     title: t('projects.kaizen.web_platform.title'),
     description: t('projects.kaizen.web_platform.description'),
-    tags: [
+    stack: [
       { name: "Next.js", icon: icons["Next.js"] },
       { name: "TypeScript", icon: icons["TypeScript"] },
       { name: "MongoDB", icon: icons["MongoDB"] },
       { name: "Cloudflare", icon: icons["Cloudflare"] },
     ],
+    tags: ["Full-Stack", "E-commerce"],
   },
   {
     title: t('projects.kaizen.infrastructure.title'),
     description: t('projects.kaizen.infrastructure.description'),
-    tags: [
+    stack: [
       { name: "Linux", icon: icons["Linux"] },
       { name: "Docker", icon: icons["Docker"] },
       { name: "Pterodactyl", icon: icons["Pterodactyl"] },
       { name: "discord.js", icon: icons["discord.js"] },
     ],
+    tags: ["DevOps", "Cloud"],
   },
 ];
 
@@ -80,12 +83,12 @@ const otherProjects = [
   {
     title: t('projects.list.thesis.title'),
     description: t('projects.list.thesis.description'),
-    tags: [
+    stack: [
       { name: "Next.js", icon: icons["Next.js"] },
       { name: "TypeScript", icon: icons["TypeScript"] },
       { name: "Skript", icon: null },
-      { name: "Privacy by Design", icon: null },
     ],
+    tags: ["Thesis", "Privacy by Design"],
     extraLinks: [
       { href: "https://perpustakaan.universitaspertamina.ac.id/xmlui/handle/123456789/16378", label: t('projects.list.thesis.link_thesis') },
       { href: "/docs/poster-tugas-akhir.pdf", label: t('projects.list.thesis.link_poster') },
@@ -94,36 +97,38 @@ const otherProjects = [
   {
     title: t('projects.list.top_mc.title'),
     description: t('projects.list.top_mc.description'),
-    tags: [
+    stack: [
       { name: "Next.js", icon: icons["Next.js"] },
       { name: "React", icon: icons["React"] },
       { name: "TypeScript", icon: icons["TypeScript"] },
-      { name: "Data Visualization", icon: null },
     ],
+    tags: ["Data Visualization", "Minecraft"],
     link: "https://kaizenmc.id/blog/server-minecraft-indonesia-terbaik",
     image: "/images/projects/top-mc-servers-1920-1080.webp",
   },
   {
     title: t('projects.list.cloudshort.title'),
     description: t('projects.list.cloudshort.description'),
-    tags: [
+    stack: [
       { name: "Cloudflare", icon: icons["Cloudflare"] },
       { name: "Hono", icon: icons["Hono"] },
       { name: "React", icon: icons["React"] },
       { name: "TypeScript", icon: icons["TypeScript"] },
     ],
+    tags: ["URL Shortener", "Serverless"],
     github: "https://github.com/rayhandestian/cloudshort",
     image: "/images/projects/cloudshort-1920-1080.webp",
   },
   {
     title: t('projects.list.uperli.title'),
     description: t('projects.list.uperli.description'),
-    tags: [
+    stack: [
       { name: "Next.js", icon: icons["Next.js"] },
       { name: "TypeScript", icon: icons["TypeScript"] },
       { name: "PostgreSQL", icon: icons["PostgreSQL"] },
       { name: "Prisma", icon: icons["Prisma"] },
     ],
+    tags: ["URL Shortener", "University Project"],
     link: "https://uper.li/",
     github: "https://github.com/rayhandestian/uper-li",
     image: "/images/projects/uper-li-1920-1080.webp",
@@ -131,21 +136,19 @@ const otherProjects = [
   {
     title: t('projects.list.quickbites.title'),
     description: t('projects.list.quickbites.description'),
-    tags: [
+    stack: [
       { name: "Flutter", icon: icons["Flutter"] },
       { name: "Firebase", icon: icons["Firebase"] },
     ],
+    tags: ["Mobile App", "Food Ordering"],
     github: "https://github.com/rayhandestian/quickbites",
     image: "/images/projects/quickbites-1920-1080.webp",
   },
   {
     title: t('projects.list.packvertise.title'),
     description: t('projects.list.packvertise.description'),
-    tags: [
-      { name: "Startup", icon: null },
-      { name: "Business Pitching", icon: null },
-      { name: "MBKM", icon: null },
-    ],
+    stack: [],
+    tags: ["Startup", "Business Pitching", "MBKM"],
     link: "https://packvertise.id/",
     image: "/images/projects/packvertise-1920-1080.webp",
     extraLinks: [
@@ -155,21 +158,23 @@ const otherProjects = [
   {
     title: t('projects.list.water_tank.title'),
     description: t('projects.list.water_tank.description'),
-    tags: [
+    stack: [
       { name: "MicroPython", icon: icons["MicroPython"] },
       { name: "Node.js", icon: icons["Node.js"] },
       { name: "MySQL", icon: icons["MySQL"] },
     ],
+    tags: ["IoT", "Embedded"],
     github: "https://github.com/rayhandestian/KEL11-SMART-WATER-TANK-MONITORING-SYSTEM",
   },
   {
     title: t('projects.list.emotion_cnn.title'),
     description: t('projects.list.emotion_cnn.description'),
-    tags: [
+    stack: [
       { name: "Python", icon: icons["Python"] },
       { name: "TensorFlow", icon: icons["TensorFlow"] },
       { name: "Google Colab", icon: icons["Google Colab"] },
     ],
+    tags: ["AI/ML", "Computer Vision"],
     github: "https://github.com/rayhandestian/Emotion-Detection-CNN-TF",
   },
 ];
@@ -210,6 +215,7 @@ const otherProjects = [
           <ProjectCard
             title={project.title}
             description={project.description}
+            stack={project.stack}
             tags={project.tags}
           />
         ))}
@@ -222,6 +228,7 @@ const otherProjects = [
         <ProjectCard
           title={project.title}
           description={project.description}
+          stack={project.stack}
           tags={project.tags}
           link={project.link}
           github={project.github}
