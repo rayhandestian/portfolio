@@ -12,7 +12,7 @@ export const en = {
     name: "Rayhan Destian",
     tagline: "Computer Science Student · Full-Stack Developer · Game Dev Enthusiast",
     description: "Founder of Kaizen Network, a Minecraft server network with 100,000+ registered players. I build immersive game experiences and modern web applications.",
-    cta_email: "hi@rayhan.ch",
+    cta_contact: "Contact me",
     cta_github: "GitHub",
     cta_linkedin: "LinkedIn",
     cta_resume: "Resume",
@@ -123,6 +123,7 @@ export const en = {
   contact: {
     title: "Contact",
     subtitle: "Pick a starting point, or write your own message.",
+    email_note: "Prefer email? Reach me at",
     prompts: [
       { label: "Build a website or app", starter: "I'm looking for someone to build a website or web app. Here's what I have in mind: " },
       { label: "Job or internship", starter: "I'm reaching out about a job or internship opportunity. " },

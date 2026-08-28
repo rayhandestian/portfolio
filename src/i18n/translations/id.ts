@@ -12,7 +12,7 @@ export const id = {
         name: "Rayhan Destian",
         tagline: "Mahasiswa Ilmu Komputer · Full-Stack Developer · Penggemar Game Dev",
         description: "Pendiri Kaizen Network, jaringan server Minecraft dengan 100.000+ pemain terdaftar. Saya membangun pengalaman game yang imersif dan aplikasi web modern.",
-        cta_email: "hi@rayhan.ch",
+        cta_contact: "Hubungi saya",
         cta_github: "GitHub",
         cta_linkedin: "LinkedIn",
         cta_resume: "Resume",
@@ -123,6 +123,7 @@ export const id = {
     contact: {
         title: "Kontak",
         subtitle: "Pilih salah satu untuk memulai, atau tulis pesan Anda sendiri.",
+        email_note: "Lebih suka email? Hubungi saya di",
         prompts: [
             { label: "Bikin website atau aplikasi", starter: "Saya sedang mencari orang untuk membuat website atau aplikasi web. Kira-kira seperti ini: " },
             { label: "Lowongan kerja atau magang", starter: "Saya menghubungi terkait peluang kerja atau magang. " },
