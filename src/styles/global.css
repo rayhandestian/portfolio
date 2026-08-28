@@ -13,6 +13,7 @@
   /* Accent - Subtle, single color */
   --color-accent: #8b7cf7;
   --color-accent-hover: #a099f7;
+  --color-accent-soft: rgba(139, 124, 247, 0.1);
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -46,6 +47,7 @@
   --color-text-muted: #8a8a9a;
   --color-accent: #6b5dd3;
   --color-accent-hover: #5a4dc3;
+  --color-accent-soft: rgba(107, 93, 211, 0.1);
   --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -189,7 +191,7 @@ p {
 .btn-outline:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
-  background: rgba(139, 124, 247, 0.06);
+  background: var(--color-accent-soft);
 }
 
 .btn-sm {
