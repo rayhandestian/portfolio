@@ -1,0 +1,114 @@
+---
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: 'en' | 'id';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const achievements = [
+  {
+    date: t('achievements.items.cve.date'),
+    title: t('achievements.items.cve.title'),
+    description: t('achievements.items.cve.description'),
+    badge: "CVE-2026-47285",
+    link: "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47285",
+    linkLabel: t('achievements.items.cve.link'),
+  },
+  {
+    date: t('achievements.items.upercase.date'),
+    title: t('achievements.items.upercase.title'),
+    description: t('achievements.items.upercase.description'),
+    badge: "Top 7 / 31",
+    link: "/docs/sertifikat-uper-case-ib-2025.pdf",
+    linkLabel: t('achievements.items.upercase.link'),
+  },
+];
+---
+
+<section class="section" id="achievements">
+  <div class="container">
+    <h2 class="section-title">{t('achievements.title')}</h2>
+    <p class="section-subtitle">{t('achievements.subtitle')}</p>
+    <div class="achievements-grid">
+      {achievements.map(item => (
+        <article class="achievement card">
+          <div class="achievement-meta">
+            <span class="achievement-badge">{item.badge}</span>
+            <span class="achievement-date">{item.date}</span>
+          </div>
+          <h3 class="achievement-title">{item.title}</h3>
+          <p class="achievement-description">{item.description}</p>
+          {item.link && (
+            <a href={item.link} target="_blank" rel="noopener" class="achievement-link link-hover">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              {item.linkLabel}
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .achievement {
+    padding: var(--space-lg);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .achievement-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .achievement-badge {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+  }
+
+  .achievement-date {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .achievement-title {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .achievement-description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .achievement-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+</style>
