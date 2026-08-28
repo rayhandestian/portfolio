@@ -121,6 +121,10 @@ const prompts: { label: string; starter: string }[] = t('contact.prompts');
           </div>
         </div>
       </form>
+
+      <p class="contact-email-note">
+        {t('contact.email_note')} <a href="mailto:hi@rayhan.ch" class="link-hover">hi@rayhan.ch</a>
+      </p>
     </div>
   </div>
 </section>
@@ -348,6 +352,18 @@ const prompts: { label: string; starter: string }[] = t('contact.prompts');
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
+  }
+
+  .contact-email-note {
+    margin-top: var(--space-lg);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .contact-email-note a {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   .form-row {
