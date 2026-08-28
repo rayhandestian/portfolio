@@ -1,8 +1,10 @@
 ---
-// ProjectCard.astro - Project card with icon tags
-interface Tag {
+// ProjectCard.astro - Project card
+// `stack` is what the project is built with (chips with logos).
+// `tags` is what kind of project it is (category label above the title).
+interface StackItem {
   name: string;
-  icon: string;
+  icon: string | null;
 }
 
 interface ExtraLink {
@@ -13,14 +15,15 @@ interface ExtraLink {
 interface Props {
   title: string;
   description: string;
-  tags: Tag[];
+  stack?: StackItem[];
+  tags?: string[];
   link?: string;
   github?: string;
   image?: string;
   extraLinks?: ExtraLink[];
 }
 
-const { title, description, tags, link, github, image, extraLinks = [] } = Astro.props;
+const { title, description, stack = [], tags = [], link, github, image, extraLinks = [] } = Astro.props;
 ---
 
 <article class="project-card card">
@@ -30,16 +33,28 @@ const { title, description, tags, link, github, image, extraLinks = [] } = Astro
     </div>
   )}
   <div class="project-content">
+    {tags.length > 0 && (
+      <p class="project-tags">
+        {tags.map((tag, i) => (
+          <>
+            {i > 0 && <span class="tag-sep" aria-hidden="true">·</span>}
+            <span class="project-tag">{tag}</span>
+          </>
+        ))}
+      </p>
+    )}
     <h3 class="project-title">{title}</h3>
     <p class="project-description">{description}</p>
-    <div class="project-tags">
-      {tags.map(tag => (
-        <span class="tag" title={tag.name}>
-          {tag.icon && <Fragment set:html={tag.icon} />}
-          {tag.name}
-        </span>
-      ))}
-    </div>
+    {stack.length > 0 && (
+      <div class="project-stack">
+        {stack.map(item => (
+          <span class="tag" title={item.name}>
+            {item.icon && <Fragment set:html={item.icon} />}
+            {item.name}
+          </span>
+        ))}
+      </div>
+    )}
     <div class="project-links">
       {link && (
         <a href={link} target="_blank" rel="noopener" class="project-link link-hover">
@@ -108,6 +123,25 @@ const { title, description, tags, link, github, image, extraLinks = [] } = Astro
   }
 
   .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--space-xs);
+    margin-bottom: var(--space-xs);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .tag-sep {
+    opacity: 0.5;
+  }
+
+  .project-stack {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
