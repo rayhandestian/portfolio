@@ -122,7 +122,13 @@ export const id = {
     },
     contact: {
         title: "Kontak",
-        subtitle: "Punya pertanyaan atau ingin bekerja sama?",
+        subtitle: "Pilih salah satu untuk memulai, atau tulis pesan Anda sendiri.",
+        prompts: [
+            { label: "Bikin website atau aplikasi", starter: "Saya sedang mencari orang untuk membuat website atau aplikasi web. Kira-kira seperti ini: " },
+            { label: "Lowongan kerja atau magang", starter: "Saya menghubungi terkait peluang kerja atau magang. " },
+            { label: "Tanya soal proyek", starter: "Saya punya pertanyaan tentang salah satu proyek Anda: " },
+            { label: "Hanya mau menyapa", starter: "Halo! " },
+        ],
         form: {
             name: "Nama",
             name_placeholder: "Nama Anda",

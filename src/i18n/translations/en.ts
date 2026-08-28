@@ -122,7 +122,13 @@ export const en = {
   },
   contact: {
     title: "Contact",
-    subtitle: "Have a question or want to work together?",
+    subtitle: "Pick a starting point, or write your own message.",
+    prompts: [
+      { label: "Build a website or app", starter: "I'm looking for someone to build a website or web app. Here's what I have in mind: " },
+      { label: "Job or internship", starter: "I'm reaching out about a job or internship opportunity. " },
+      { label: "Question about a project", starter: "I have a question about one of your projects: " },
+      { label: "Just saying hi", starter: "Hi! " },
+    ],
     form: {
       name: "Name",
       name_placeholder: "Your name",
