@@ -8,7 +8,7 @@ export const id = {
     },
     hero: {
         greeting: "Halo, saya",
-        name: "Rayhan",
+        name: "Rayhan Destian",
         tagline: "Mahasiswa Ilmu Komputer · Full-Stack Developer · Penggemar Game Dev",
         description: "Membangun pengalaman Minecraft yang imersif dan aplikasi web modern.",
         cta_email: "hi@rayhan.ch",
@@ -102,6 +102,6 @@ export const id = {
         }
     },
     footer: {
-        copyright: "© {year} Rayhan",
+        copyright: "© {year} Rayhan Destian",
     }
 };

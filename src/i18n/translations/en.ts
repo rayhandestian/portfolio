@@ -8,7 +8,7 @@ export const en = {
   },
   hero: {
     greeting: "Hi, I'm",
-    name: "Rayhan",
+    name: "Rayhan Destian",
     tagline: "Computer Science Student · Full-Stack Developer · Game Dev Enthusiast",
     description: "Building immersive Minecraft experiences and modern web applications.",
     cta_email: "hi@rayhan.ch",
@@ -102,6 +102,6 @@ export const en = {
     }
   },
   footer: {
-    copyright: "© {year} Rayhan",
+    copyright: "© {year} Rayhan Destian",
   }
 };
