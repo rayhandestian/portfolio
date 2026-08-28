@@ -47,13 +47,13 @@ export const id = {
         list: {
             thesis: {
                 title: "Kepatuhan UU PDP untuk Kaizen Network",
-                description: "Tugas akhir: kerangka tujuh langkah untuk menerjemahkan UU Pelindungan Data Pribadi (UU PDP) ke kebutuhan teknis, diterapkan pada 107.000+ akun Kaizen Network. Membangun modul Privacy by Design: dialog consent in-game, portal Next.js untuk akses, unduh, dan hapus data, audit trail append-only, retensi otomatis, dan pengamanan API. 9 dari 9 item kepatuhan terpenuhi dan 15 test case lulus di produksi.",
+                description: "Tugas akhir yang menerjemahkan UU Pelindungan Data Pribadi (UU PDP) ke kebutuhan teknis untuk 107.000+ akun Kaizen Network. Membangun dialog consent in-game, portal Next.js untuk akses dan hapus data, audit trail, dan retensi otomatis. 9 dari 9 item kepatuhan terpenuhi di produksi.",
                 link_thesis: "Baca tugas akhir",
                 link_poster: "Lihat poster",
             },
             top_mc: {
                 title: "Top MC Servers Indonesia",
-                description: "Sejarah peringkat interaktif server Minecraft terbaik Indonesia dari 2012 hingga 2026, dibangun ulang dari 49 snapshot Wayback Machine yang mencakup 150+ server. Bump chart kustom yang dibagi dua era, lengkap dengan dataset yang bisa diunduh. Diterbitkan sebagai halaman blog Kaizen Network.",
+                description: "Sejarah peringkat interaktif server Minecraft terbaik Indonesia dari 2012 hingga 2026, dibangun ulang dari 49 snapshot Wayback Machine yang mencakup 150+ server. Bump chart kustom dengan dataset yang bisa diunduh, diterbitkan di blog Kaizen Network.",
             },
             cloudshort: {
                 title: "Cloudshort",
@@ -69,7 +69,7 @@ export const id = {
             },
             packvertise: {
                 title: "Packvertise",
-                description: "Startup iklan yang saya dirikan sendiri, menempatkan iklan brand di kemasan makanan sekali pakai: pengiklan menjangkau pelanggan saat mereka makan, dan penjual makanan mendapat kemasan gratis plus bagi hasil. Memproduksi dan mendistribusikan 1.000 kemasan bermerek dengan pelacakan QR lewat dua tenant kantin kampus, plus satu kampanye pilot untuk klien. Top 7 dari 31 tim di UPER CASE IB 2025 (MBKM, Universitas Pertamina), lolos 2 dari 3 babak pitching.",
+                description: "Startup yang saya dirikan sendiri, menempatkan iklan brand di kemasan makanan sekali pakai: pengiklan menjangkau pelanggan saat mereka makan, penjual dapat kemasan gratis plus bagi hasil. Mendistribusikan 1.000 kemasan dengan pelacakan QR lewat dua kantin kampus, plus satu kampanye pilot untuk klien. Top 7 dari 31 tim di UPER CASE IB 2025.",
                 link_report: "Laporan MBKM",
             },
             water_tank: {

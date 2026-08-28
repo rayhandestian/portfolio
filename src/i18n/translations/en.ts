@@ -47,13 +47,13 @@ export const en = {
     list: {
       thesis: {
         title: "UU PDP Compliance for Kaizen Network",
-        description: "Undergraduate thesis: a seven-step framework for translating Indonesia's Personal Data Protection Law (UU PDP) into technical requirements, applied to Kaizen Network's 107,000+ accounts. Shipped a Privacy by Design module: in-game consent dialogs, a Next.js portal for data access, export, and deletion, append-only audit trails, automated retention, and hardened APIs. All 9 compliance items met and 15 test cases passed in production.",
+        description: "Undergraduate thesis turning Indonesia's Personal Data Protection Law (UU PDP) into technical requirements for Kaizen Network's 107,000+ accounts. Shipped in-game consent dialogs, a Next.js portal for data access and deletion, audit trails, and automated retention. All 9 compliance items met in production.",
         link_thesis: "Read thesis",
         link_poster: "View poster",
       },
       top_mc: {
         title: "Top MC Servers Indonesia",
-        description: "Interactive ranking history of Indonesia's top Minecraft servers from 2012 to 2026, rebuilt from 49 Wayback Machine snapshots covering 150+ servers. Custom bump charts split into two eras, with a downloadable dataset. Published as a Kaizen Network blog page.",
+        description: "Interactive ranking history of Indonesia's top Minecraft servers from 2012 to 2026, rebuilt from 49 Wayback Machine snapshots covering 150+ servers. Custom bump charts with a downloadable dataset, published on the Kaizen Network blog.",
       },
       cloudshort: {
         title: "Cloudshort",
@@ -69,7 +69,7 @@ export const en = {
       },
       packvertise: {
         title: "Packvertise",
-        description: "Solo-founded ad startup placing brand ads on disposable food packaging: advertisers reach customers where they eat, and food vendors get free packaging plus a revenue share. Produced and distributed 1,000 QR-tracked branded packages through two campus canteen tenants and ran a pilot campaign for one client. Top 7 of 31 teams at UPER CASE IB 2025 (MBKM, Universitas Pertamina), advancing through 2 of 3 pitching rounds.",
+        description: "Solo-founded startup placing brand ads on disposable food packaging: advertisers reach customers where they eat, vendors get free packaging plus a revenue share. Distributed 1,000 QR-tracked packages through two campus canteens and ran a pilot campaign for one client. Top 7 of 31 teams at UPER CASE IB 2025.",
         link_report: "MBKM report",
       },
       water_tank: {
