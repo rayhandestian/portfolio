@@ -10,7 +10,7 @@ export const id = {
     hero: {
         greeting: "Halo, saya",
         name: "Rayhan Destian",
-        tagline: "Mahasiswa Ilmu Komputer · Full-Stack Developer · Penggemar Game Dev",
+        tagline: "Lulusan Ilmu Komputer · Full-Stack Developer · Penggemar Game Dev",
         description: "Pendiri Kaizen Network, jaringan server Minecraft dengan 100.000+ pemain terdaftar. Saya membangun pengalaman game yang imersif dan aplikasi web modern.",
         cta_contact: "Hubungi saya",
         cta_github: "GitHub",
@@ -115,7 +115,7 @@ export const id = {
     about: {
         title: "Tentang",
         paragraphs: [
-            "Saya adalah mahasiswa tingkat akhir Ilmu Komputer di <strong>Universitas Pertamina</strong>, lulus tahun 2026 dengan tugas akhir tentang kepatuhan UU PDP pada platform game online. Saya suka membangun sesuatu yang hidup di internet dan dalam game.",
+            "Saya lulus dari program studi Ilmu Komputer di <strong>Universitas Pertamina</strong> pada Agustus 2026 dengan tugas akhir tentang kepatuhan UU PDP pada platform game online. Saya suka membangun sesuatu yang hidup di internet dan dalam game.",
             "Saya adalah pendiri sekaligus arsitek teknis tunggal di balik <strong>Kaizen Network</strong>, jaringan server Minecraft Indonesia dengan 100.000+ akun terdaftar dan puncak 150 pemain bersamaan. Saya menangani hampir segala hal teknis di sana, mulai dari skrip game dan pengembangan plugin kustom hingga pengembangan web full-stack dan manajemen infrastruktur cloud, dengan uptime 99,9%.",
             "Saya juga mendirikan <strong>Packvertise</strong>, startup iklan di kemasan makanan yang masuk top 7 dari 31 tim di UPER CASE IB 2025. Di luar itu, saya menjelajahi AI/ML, berkecimpung di IoT, dan melakukan riset keamanan, termasuk temuan kerentanan di Visual Studio Code yang diakui Microsoft."
         ]

@@ -10,7 +10,7 @@ export const en = {
   hero: {
     greeting: "Hi, I'm",
     name: "Rayhan Destian",
-    tagline: "Computer Science Student · Full-Stack Developer · Game Dev Enthusiast",
+    tagline: "Computer Science Graduate · Full-Stack Developer · Game Dev Enthusiast",
     description: "Founder of Kaizen Network, a Minecraft server network with 100,000+ registered players. I build immersive game experiences and modern web applications.",
     cta_contact: "Contact me",
     cta_github: "GitHub",
@@ -115,7 +115,7 @@ export const en = {
   about: {
     title: "About",
     paragraphs: [
-      "I'm a final-year Computer Science student at <strong>Universitas Pertamina</strong> (Indonesia), graduating in 2026 with a thesis on UU PDP compliance for online game platforms. I love building things that live on the internet and in games.",
+      "I graduated from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026 with a bachelor's degree in Computer Science and a thesis on UU PDP compliance for online game platforms. I love building things that live on the internet and in games.",
       "I'm the founder and sole technical architect behind <strong>Kaizen Network</strong>, an Indonesian Minecraft server network with 100,000+ registered accounts and 150 peak concurrent players. I handle almost every technical thing there, from game scripting and custom plugin development to full-stack web development and cloud infrastructure management, at 99.9% uptime.",
       "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025. Outside of that, I explore AI/ML, dabble in IoT, and do security research on the side, including a Microsoft-credited vulnerability find in Visual Studio Code."
     ]
