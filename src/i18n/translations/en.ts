@@ -10,8 +10,8 @@ export const en = {
   hero: {
     greeting: "Hi, I'm",
     name: "Rayhan Destian",
-    tagline: "Computer Science Graduate · Full-Stack Developer · Game Dev Enthusiast",
-    description: "Founder of Kaizen Network, a Minecraft server network with 100,000+ registered players. I build immersive game experiences and modern web applications.",
+    tagline: "Full-Stack Developer · TypeScript, React & Next.js",
+    description: "Full-stack developer and Computer Science graduate building and operating live web and game systems. Founder and sole developer of Kaizen Network, with 100,000+ registered accounts and 150 peak concurrent players.",
     cta_contact: "Contact me",
     cta_github: "GitHub",
     cta_linkedin: "LinkedIn",
@@ -27,7 +27,6 @@ export const en = {
       stats: {
         players: "Peak concurrent players",
         accounts: "Registered accounts",
-        uptime: "Uptime",
       },
     },
     kaizen: {
@@ -37,17 +36,17 @@ export const en = {
       },
       web_platform: {
         title: "Web Platform",
-        description: "Full-stack brand website with game server status, leaderboards, e-commerce (store) platform with payment gateway integration, and a comprehensive admin dashboard.",
+        description: "Next.js, TypeScript and MongoDB store and website with Tripay and Midtrans payments, webhook confirmation, automated in-game fulfillment and a JWT-authenticated admin panel. Added rate limiting and Turnstile bot protection.",
       },
       infrastructure: {
         title: "Infrastructure",
-        description: "High-availability infrastructure managing multiple game nodes, databases, automated deployments, to Discord bot orchestration.",
+        description: "Deploy and operate game servers, databases and Discord bots on Linux, Docker and Pterodactyl, with MariaDB and Redis. HetrixTools reported 99.95% average monitor uptime over the 30 days to 12 September 2026, excluding maintenance.",
       }
     },
     list: {
       thesis: {
-        title: "UU PDP Compliance for Kaizen Network",
-        description: "Undergraduate thesis turning Indonesia's Personal Data Protection Law (UU PDP) into technical requirements for Kaizen Network's 107,000+ accounts. Shipped in-game consent dialogs, a Next.js portal for data access and deletion, audit trails, and automated retention. All 9 compliance items met in production.",
+        title: "Privacy Features for Kaizen Network",
+        description: "Undergraduate thesis implementing privacy features based on Indonesia's Personal Data Protection Law (UU PDP): in-game consent, a Next.js portal for data access and deletion, audit trails and automated retention.",
         link_thesis: "Read thesis",
         link_poster: "View poster",
       },
@@ -57,7 +56,7 @@ export const en = {
       },
       cloudshort: {
         title: "Cloudshort",
-        description: "High-performance, private URL shortener powering kzn.li. Built on the Cloudflare ecosystem using Workers and Hono for sub-50ms redirects, with a React dashboard for link management.",
+        description: "Private URL shortener built with TypeScript, Cloudflare Workers and Hono. Uses KV-backed redirects, D1 click analytics and a React admin dashboard protected by JWT/cookie authentication.",
       },
       uperli: {
         title: "UPer.li",
@@ -115,8 +114,8 @@ export const en = {
   about: {
     title: "About",
     paragraphs: [
-      "I graduated from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026 with a bachelor's degree in Computer Science and a thesis on UU PDP compliance for online game platforms. I love building things that live on the internet and in games.",
-      "I'm the founder and sole technical architect behind <strong>Kaizen Network</strong>, an Indonesian Minecraft server network with 100,000+ registered accounts and 150 peak concurrent players. I handle almost every technical thing there, from game scripting and custom plugin development to full-stack web development and cloud infrastructure management, at 99.9% uptime.",
+      "I graduated from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026 with a bachelor's degree in Computer Science. My thesis implemented privacy features for online game platforms based on UU PDP. I build and operate web applications and game systems.",
+      "I'm the founder and sole full-stack developer behind <strong>Kaizen Network</strong>, an Indonesian Minecraft server network with 100,000+ registered accounts and 150 peak concurrent players. I own the TypeScript/Next.js applications, payment integrations, custom Java plugins and cloud operations from implementation to deployment.",
       "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025. Outside of that, I explore AI/ML, dabble in IoT, and do security research on the side, including a Microsoft-credited vulnerability find in Visual Studio Code."
     ]
   },

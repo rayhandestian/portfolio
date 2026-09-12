@@ -10,8 +10,8 @@ export const id = {
     hero: {
         greeting: "Halo, saya",
         name: "Rayhan Destian",
-        tagline: "Lulusan Ilmu Komputer · Full-Stack Developer · Penggemar Game Dev",
-        description: "Pendiri Kaizen Network, jaringan server Minecraft dengan 100.000+ pemain terdaftar. Saya membangun pengalaman game yang imersif dan aplikasi web modern.",
+        tagline: "Full-Stack Developer · TypeScript, React & Next.js",
+        description: "Full-stack developer dan lulusan Ilmu Komputer yang membangun dan menjalankan aplikasi web serta sistem game. Pendiri dan pengembang tunggal Kaizen Network, dengan 100.000+ akun terdaftar dan puncak 150 pemain bersamaan.",
         cta_contact: "Hubungi saya",
         cta_github: "GitHub",
         cta_linkedin: "LinkedIn",
@@ -25,9 +25,8 @@ export const id = {
             description: "Jaringan Server Minecraft Indonesia, didirikan dan dijalankan sendiri sejak 2022. Membangun situs web e-commerce full-stack, plugin Java Spigot & Velocity kustom, berbagai skrip Skript, bot Discord, dan mengelola infrastruktur cloud.",
             button: "Kunjungi Situs",
             stats: {
-                players: "Peak concurrent players",
+                players: "Puncak pemain bersamaan",
                 accounts: "Akun terdaftar",
-                uptime: "Uptime",
             },
         },
         kaizen: {
@@ -37,17 +36,17 @@ export const id = {
             },
             web_platform: {
                 title: "Platform Web",
-                description: "Situs web brand full-stack dengan status server game, papan peringkat, platform e-commerce (store) dengan integrasi payment gateway, dan dashboard admin yang komprehensif.",
+                description: "Toko dan situs web dengan Next.js, TypeScript dan MongoDB, pembayaran Tripay dan Midtrans, konfirmasi webhook, pengiriman pembelian otomatis ke dalam game, serta panel admin dengan autentikasi JWT. Dilengkapi pembatasan permintaan dan perlindungan bot Turnstile.",
             },
             infrastructure: {
                 title: "Infrastruktur",
-                description: "Infrastruktur high-availability yang mengelola beberapa node game, database, deployment otomatis, hingga orkestrasi bot Discord.",
+                description: "Menjalankan dan mengelola server game, database dan bot Discord di Linux, Docker dan Pterodactyl, dengan MariaDB dan Redis. HetrixTools mencatat rata-rata uptime monitor 99,95% selama 30 hari hingga 12 September 2026, di luar waktu pemeliharaan.",
             }
         },
         list: {
             thesis: {
-                title: "Kepatuhan UU PDP untuk Kaizen Network",
-                description: "Tugas akhir yang menerjemahkan UU Pelindungan Data Pribadi (UU PDP) ke kebutuhan teknis untuk 107.000+ akun Kaizen Network. Membangun dialog consent in-game, portal Next.js untuk akses dan hapus data, audit trail, dan retensi otomatis. 9 dari 9 item kepatuhan terpenuhi di produksi.",
+                title: "Fitur Privasi untuk Kaizen Network",
+                description: "Tugas akhir yang menerapkan fitur privasi berdasarkan UU Pelindungan Data Pribadi (UU PDP): persetujuan di dalam game, portal Next.js untuk akses dan penghapusan data, catatan audit, serta retensi otomatis.",
                 link_thesis: "Baca tugas akhir",
                 link_poster: "Lihat poster",
             },
@@ -57,7 +56,7 @@ export const id = {
             },
             cloudshort: {
                 title: "Cloudshort",
-                description: "Penyingkat URL pribadi berkinerja tinggi yang mentenagai kzn.li. Dibangun di ekosistem Cloudflare menggunakan Workers dan Hono untuk pengalihan di bawah 50ms, dengan dashboard React untuk manajemen tautan.",
+                description: "Penyingkat URL pribadi dengan TypeScript, Cloudflare Workers dan Hono. Menggunakan KV untuk pengalihan tautan, D1 untuk analitik klik, serta dashboard admin React dengan autentikasi JWT/cookie.",
             },
             uperli: {
                 title: "UPer.li",
@@ -115,8 +114,8 @@ export const id = {
     about: {
         title: "Tentang",
         paragraphs: [
-            "Saya lulus dari program studi Ilmu Komputer di <strong>Universitas Pertamina</strong> pada Agustus 2026 dengan tugas akhir tentang kepatuhan UU PDP pada platform game online. Saya suka membangun sesuatu yang hidup di internet dan dalam game.",
-            "Saya adalah pendiri sekaligus arsitek teknis tunggal di balik <strong>Kaizen Network</strong>, jaringan server Minecraft Indonesia dengan 100.000+ akun terdaftar dan puncak 150 pemain bersamaan. Saya menangani hampir segala hal teknis di sana, mulai dari skrip game dan pengembangan plugin kustom hingga pengembangan web full-stack dan manajemen infrastruktur cloud, dengan uptime 99,9%.",
+            "Saya lulus dari program studi Ilmu Komputer di <strong>Universitas Pertamina</strong> pada Agustus 2026. Tugas akhir saya menerapkan fitur privasi untuk platform game online berdasarkan UU PDP. Saya membangun dan menjalankan aplikasi web serta sistem game.",
+            "Saya adalah pendiri sekaligus full-stack developer tunggal di balik <strong>Kaizen Network</strong>, jaringan server Minecraft Indonesia dengan 100.000+ akun terdaftar dan puncak 150 pemain bersamaan. Saya menangani aplikasi TypeScript/Next.js, integrasi pembayaran, plugin Java kustom dan operasional cloud, dari implementasi hingga deployment.",
             "Saya juga mendirikan <strong>Packvertise</strong>, startup iklan di kemasan makanan yang masuk top 7 dari 31 tim di UPER CASE IB 2025. Di luar itu, saya menjelajahi AI/ML, berkecimpung di IoT, dan melakukan riset keamanan, termasuk temuan kerentanan di Visual Studio Code yang diakui Microsoft."
         ]
     },
