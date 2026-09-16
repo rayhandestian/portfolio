@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page not found | Rayhan Destian"
+  description="That page doesn't exist."
+  lang="en"
+  alternates={false}
+>
+  <main class="notfound">
+    <p class="notfound-code">404</p>
+    <h1 class="notfound-title">Page not found</h1>
+    <p class="notfound-text">That page doesn't exist, or it has moved.</p>
+
+    <div class="notfound-actions">
+      <a href="/" class="btn btn-primary">Go to homepage</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .notfound {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-3xl) var(--space-lg);
+  }
+
+  .notfound-code {
+    font-family: var(--font-mono);
+    font-size: clamp(3.5rem, 12vw, 6rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .notfound-title {
+    margin-top: var(--space-md);
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .notfound-text {
+    margin-top: var(--space-sm);
+    max-width: 28rem;
+  }
+
+  .notfound-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+  }
+</style>
