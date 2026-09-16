@@ -1,0 +1,31 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="blog-header">
+  <a href="/" class="blog-header-home link-hover">Rayhan Destian</a>
+  <ThemeToggle />
+</header>
+
+<style>
+  .blog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .blog-header-home {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .blog-header-home:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+</style>

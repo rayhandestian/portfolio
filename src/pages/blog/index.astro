@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import BlogHeader from '../../components/BlogHeader.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const dateFormat = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<Layout
+  title="Blog | Rayhan Destian"
+  description="Writing by Rayhan Destian on software, privacy, and the systems he builds."
+  lang="en"
+  alternates={false}
+>
+  <div class="blog-shell">
+    <BlogHeader />
+
+    <main class="blog-main">
+      <h1 class="blog-title">Blog</h1>
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li class="post-item">
+            <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+              {dateFormat.format(post.data.pubDate)}
+            </time>
+            <h2 class="post-heading">
+              <a href={`/blog/${post.id}`}>{post.data.title}</a>
+            </h2>
+            <p class="post-summary">{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    </main>
+  </div>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .blog-shell {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  .blog-main {
+    padding: var(--space-2xl) 0 var(--space-3xl);
+  }
+
+  .blog-title {
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+  }
+
+  .post-list {
+    list-style: none;
+    margin: var(--space-xl) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .post-date {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .post-heading {
+    margin-top: var(--space-xs);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  .post-heading a {
+    transition: color 0.2s ease;
+  }
+
+  .post-heading a:hover {
+    color: var(--color-accent);
+  }
+
+  .post-heading a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .post-summary {
+    margin-top: var(--space-xs);
+    font-size: 1rem;
+  }
+</style>

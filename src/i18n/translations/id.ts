@@ -5,6 +5,7 @@ export const id = {
         achievements: "Pencapaian",
         about: "Tentang",
         contact: "Kontak",
+        blog: "Blog",
         switch_lang: "English",
     },
     hero: {

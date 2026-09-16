@@ -1,0 +1,183 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import BlogHeader from '../../components/BlogHeader.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const publishedOn = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(post.data.pubDate);
+---
+
+<Layout
+  title={`${post.data.title} | Rayhan Destian`}
+  description={post.data.description}
+  lang="en"
+  alternates={false}
+>
+  <div class="blog-shell">
+    <BlogHeader />
+
+    <main class="post">
+      <header class="post-head">
+        <h1 class="post-title">{post.data.title}</h1>
+        <p class="post-meta">
+          Rayhan Destian
+          <time datetime={post.data.pubDate.toISOString()}>{publishedOn}</time>
+        </p>
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <a href="/blog" class="post-back link-hover">Back to blog</a>
+    </main>
+  </div>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .blog-shell {
+    width: 100%;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+  }
+
+  .post {
+    padding: var(--space-2xl) 0 var(--space-3xl);
+  }
+
+  .post-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .post-meta time {
+    color: inherit;
+  }
+
+  .prose {
+    margin-top: var(--space-xl);
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
+    line-height: 1.75;
+    color: var(--color-text-primary);
+  }
+
+  .prose :global(p) {
+    color: inherit;
+    margin-bottom: 1.4em;
+  }
+
+  .prose :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.5rem;
+    margin: 2em 0 0.6em;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.25rem;
+    margin: 1.8em 0 0.5em;
+  }
+
+  .prose :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  .prose :global(a:hover) {
+    color: var(--color-accent-hover);
+  }
+
+  .prose :global(blockquote) {
+    margin: 1.6em 0;
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--color-border-strong);
+    color: var(--color-text-secondary);
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin: 0 0 1.4em 1.2em;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.4em;
+  }
+
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.1em 0.35em;
+  }
+
+  .prose :global(pre) {
+    margin: 1.6em 0;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .prose :global(hr) {
+    margin: 2.4em 0;
+    border: none;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .post-back {
+    display: inline-block;
+    margin-top: var(--space-2xl);
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 600px) {
+    .prose {
+      font-size: 1.0625rem;
+    }
+  }
+</style>

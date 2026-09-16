@@ -5,6 +5,7 @@ export const en = {
     achievements: "Achievements",
     about: "About",
     contact: "Contact",
+    blog: "Blog",
     switch_lang: "Bahasa Indonesia",
   },
   hero: {

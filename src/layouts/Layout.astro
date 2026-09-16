@@ -5,16 +5,19 @@ interface Props {
   title: string;
   description?: string;
   lang?: string;
+  /** Homepage-only hreflang tags; pages without a translated twin opt out. */
+  alternates?: boolean;
 }
 
 const { 
   title, 
   description = "Full-stack developer building and operating web applications and game systems with TypeScript, React and Next.js.",
-  lang = "en" 
+  lang = "en",
+  alternates = true
 } = Astro.props;
 
-// Construct full canonical URLs for hreflang
-const siteUrl = "https://rayhan.ch"; // Replace with your actual domain or use Astro.url.origin if configured
+// Canonical domain comes from `site` in astro.config.mjs
+const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://rayhan.ch';
 ---
 
 <!doctype html>
@@ -27,12 +30,16 @@ const siteUrl = "https://rayhan.ch"; // Replace with your actual domain or use A
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
     
     <!-- i18n Alternate Links -->
-    <link rel="alternate" hreflang="en" href={siteUrl} />
-    <link rel="alternate" hreflang="id" href={`${siteUrl}/id/`} />
-    <link rel="alternate" hreflang="x-default" href={siteUrl} />
+    {alternates && (
+      <>
+        <link rel="alternate" hreflang="en" href={siteUrl} />
+        <link rel="alternate" hreflang="id" href={`${siteUrl}/id/`} />
+        <link rel="alternate" hreflang="x-default" href={siteUrl} />
+      </>
+    )}
 
     <title>{title}</title>
     <script is:inline>
