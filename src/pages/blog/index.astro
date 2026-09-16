@@ -30,13 +30,13 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
       <ul class="post-list">
         {posts.map((post) => (
           <li class="post-item">
-            <time class="post-date" datetime={post.data.pubDate.toISOString()}>
-              {dateFormat.format(post.data.pubDate)}
-            </time>
-            <h2 class="post-heading">
-              <a href={`/blog/${post.id}`}>{post.data.title}</a>
-            </h2>
-            <p class="post-summary">{post.data.description}</p>
+            <a class="post-link" href={`/blog/${post.id}`}>
+              <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+                {dateFormat.format(post.data.pubDate)}
+              </time>
+              <h2 class="post-heading">{post.data.title}</h2>
+              <p class="post-summary">{post.data.description}</p>
+            </a>
           </li>
         ))}
       </ul>
@@ -84,20 +84,28 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: -0.005em;
-  }
-
-  .post-heading a {
     transition: color 0.2s ease;
   }
 
-  .post-heading a:hover {
+  .post-link {
+    display: block;
+    padding: var(--space-md);
+    margin: 0 calc(var(--space-md) * -1);
+    border-radius: var(--radius-lg);
+    transition: background-color 0.2s ease;
+  }
+
+  .post-link:hover {
+    background: var(--color-bg-secondary);
+  }
+
+  .post-link:hover .post-heading {
     color: var(--color-accent);
   }
 
-  .post-heading a:focus-visible {
+  .post-link:focus-visible {
     outline: 2px solid var(--color-accent);
-    outline-offset: 4px;
-    border-radius: var(--radius-sm);
+    outline-offset: 2px;
   }
 
   .post-summary {
