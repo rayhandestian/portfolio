@@ -7,17 +7,70 @@ interface Props {
   lang?: string;
   /** Homepage-only hreflang tags; pages without a translated twin opt out. */
   alternates?: boolean;
+  /** 'article' switches the OG type and the structured data to BlogPosting. */
+  type?: 'website' | 'article';
+  /** Publication date, for articles only. */
+  publishedDate?: Date;
+  /** Keeps utility pages (404) out of the index. */
+  noindex?: boolean;
+  /** Bare article title for structured data, without the site suffix. */
+  headline?: string;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = "Full-stack developer building and operating web applications and game systems with TypeScript, React and Next.js.",
   lang = "en",
-  alternates = true
+  alternates = true,
+  type = 'website',
+  publishedDate,
+  noindex = false,
+  headline
 } = Astro.props;
 
 // Canonical domain comes from `site` in astro.config.mjs
 const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://rayhan.ch';
+
+// Astro builds directory-style routes, so every canonical carries a trailing slash.
+const canonical = `${siteUrl}${Astro.url.pathname.replace(/\/+$/, '')}/`;
+
+const ogImage = `${siteUrl}/og.png`;
+
+const person = {
+  '@type': 'Person',
+  name: 'Rayhan Destian',
+  url: `${siteUrl}/`,
+  email: 'hi@rayhan.ch',
+  jobTitle: 'Full-Stack Developer',
+  sameAs: [
+    'https://github.com/rayhandestian',
+    'https://linkedin.com/in/rayhandes',
+  ],
+};
+
+const schema = type === 'article'
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: headline ?? title,
+      description,
+      url: canonical,
+      mainEntityOfPage: canonical,
+      image: ogImage,
+      inLanguage: lang,
+      datePublished: publishedDate?.toISOString(),
+      dateModified: publishedDate?.toISOString(),
+      author: person,
+      publisher: person,
+    }
+  : {
+      '@context': 'https://schema.org',
+      ...person,
+      description,
+    };
+
+// Escaping `<` stops a title containing `</script>` from closing the block early.
+const schemaJson = JSON.stringify(schema).replace(/</g, '\\u003c');
 ---
 
 <!doctype html>
@@ -27,6 +80,9 @@ const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://rayha
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="author" content="Rayhan Destian" />
+    {noindex
+      ? <meta name="robots" content="noindex, follow" />
+      : <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,11 +91,34 @@ const siteUrl = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://rayha
     <!-- i18n Alternate Links -->
     {alternates && (
       <>
-        <link rel="alternate" hreflang="en" href={siteUrl} />
+        <link rel="alternate" hreflang="en" href={`${siteUrl}/`} />
         <link rel="alternate" hreflang="id" href={`${siteUrl}/id/`} />
-        <link rel="alternate" hreflang="x-default" href={siteUrl} />
+        <link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
       </>
     )}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rayhan Destian, Full-Stack Developer" />
+    <meta property="og:site_name" content="Rayhan Destian" />
+    <meta property="og:locale" content={lang === 'id' ? 'id_ID' : 'en_US'} />
+    {type === 'article' && publishedDate && (
+      <meta property="article:published_time" content={publishedDate.toISOString()} />
+    )}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={schemaJson} />
 
     <title>{title}</title>
     <script is:inline>

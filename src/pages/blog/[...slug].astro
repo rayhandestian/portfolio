@@ -28,6 +28,9 @@ const publishedOn = new Intl.DateTimeFormat('en-GB', {
   description={post.data.description}
   lang="en"
   alternates={false}
+  type="article"
+  publishedDate={post.data.pubDate}
+  headline={post.data.title}
 >
   <div class="blog-shell">
     <BlogHeader />
