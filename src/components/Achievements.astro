@@ -8,22 +8,31 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
+const cveIds = ["CVE-2026-47285", "CVE-2026-65675", "CVE-2026-40400"];
+const cveEntries = (t('achievements.items.cve.advisories') as unknown as string[]).map((text, i) => ({
+  text,
+  id: cveIds[i],
+  href: `https://msrc.microsoft.com/update-guide/vulnerability/${cveIds[i]}`,
+}));
+
 const achievements = [
   {
     date: t('achievements.items.cve.date'),
     title: t('achievements.items.cve.title'),
-    description: t('achievements.items.cve.description'),
-    badge: "CVE-2026-47285",
-    link: "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-47285",
-    linkLabel: t('achievements.items.cve.link'),
+    badge: "3 CVEs",
+    entries: cveEntries,
   },
   {
     date: t('achievements.items.upercase.date'),
     title: t('achievements.items.upercase.title'),
-    description: t('achievements.items.upercase.description'),
     badge: "Top 7 / 31",
-    link: "/docs/sertifikat-uper-case-ib-2025.pdf",
-    linkLabel: t('achievements.items.upercase.link'),
+    entries: [
+      {
+        text: t('achievements.items.upercase.description'),
+        id: t('achievements.items.upercase.link'),
+        href: "/docs/sertifikat-uper-case-ib-2025.pdf",
+      },
+    ],
   },
 ];
 ---
@@ -40,13 +49,17 @@ const achievements = [
             <span class="achievement-date">{item.date}</span>
           </div>
           <h3 class="achievement-title">{item.title}</h3>
-          <p class="achievement-description">{item.description}</p>
-          {item.link && (
-            <a href={item.link} target="_blank" rel="noopener" class="btn btn-outline btn-sm achievement-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              {item.linkLabel}
-            </a>
-          )}
+          <div class="achievement-entries">
+            {item.entries.map(entry => (
+              <div class="achievement-entry">
+                <p class="achievement-description">{entry.text}</p>
+                <a href={entry.href} target="_blank" rel="noopener" class="btn btn-outline btn-sm achievement-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  {entry.id}
+                </a>
+              </div>
+            ))}
+          </div>
         </article>
       ))}
     </div>
@@ -57,6 +70,7 @@ const achievements = [
   .achievements-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: start;
     gap: var(--space-lg);
     max-width: 900px;
     margin: 0 auto;
@@ -96,15 +110,28 @@ const achievements = [
     margin-bottom: var(--space-sm);
   }
 
+  .achievement-entries {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    flex-grow: 1;
+  }
+
+  .achievement-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
   .achievement-description {
     font-size: 0.95rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
-    flex-grow: 1;
+    margin: 0;
   }
 
   .achievement-link {
     align-self: flex-start;
-    margin-top: var(--space-md);
   }
 </style>
