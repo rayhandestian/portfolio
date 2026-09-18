@@ -11,8 +11,8 @@ export const en = {
   hero: {
     greeting: "Hi, I'm",
     name: "Rayhan Destian",
-    tagline: "Full-Stack Developer · TypeScript, React & Next.js",
-    description: "Full-stack developer and Computer Science graduate building and operating live web and game systems. Founder and sole developer of Kaizen Network, with 100,000+ registered accounts and 150 peak concurrent players.",
+    tagline: "Full-Stack Developer · TypeScript & Next.js",
+    description: "Full-stack developer and Computer Science graduate building and operating live web and game systems. Founder and sole developer of Kaizen Network since 2022.",
     cta_contact: "Contact me",
     cta_github: "GitHub",
     cta_linkedin: "LinkedIn",

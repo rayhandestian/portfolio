@@ -11,8 +11,8 @@ export const id = {
     hero: {
         greeting: "Halo, saya",
         name: "Rayhan Destian",
-        tagline: "Full-Stack Developer · TypeScript, React & Next.js",
-        description: "Full-stack developer dan lulusan Ilmu Komputer yang membangun dan menjalankan aplikasi web serta sistem game. Pendiri dan pengembang tunggal Kaizen Network, dengan 100.000+ akun terdaftar dan puncak 150 pemain bersamaan.",
+        tagline: "Full-Stack Developer · TypeScript & Next.js",
+        description: "Full-stack developer dan lulusan Ilmu Komputer yang membangun dan menjalankan aplikasi web serta sistem game. Pendiri dan pengembang tunggal Kaizen Network sejak 2022.",
         cta_contact: "Hubungi saya",
         cta_github: "GitHub",
         cta_linkedin: "LinkedIn",
