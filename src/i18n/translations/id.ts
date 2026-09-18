@@ -84,14 +84,26 @@ export const id = {
     },
     skills: {
         title: "Keahlian",
-        subtitle: "Stack yang saya pakai.",
+        subtitle: "Teknologi dan keahlian di balik proyek saya.",
         categories: {
             languages: "Bahasa",
-            frameworks: "Framework",
-            game_dev: "Game Dev",
-            databases: "Database",
+            frameworks: "Framework & Library",
+            web: "Pengembangan Web",
+            security: "Keamanan & Privasi",
+            game_dev: "Pengembangan Minecraft",
+            databases: "Database & Penyimpanan",
             devops: "DevOps & Cloud",
-            other: "Lainnya",
+            other: "Data, ML & IoT",
+        },
+        items: {
+            payments: "Integrasi Pembayaran",
+            authentication: "Autentikasi",
+            security_research: "Riset Keamanan",
+            vulnerability_discovery: "Penemuan Kerentanan",
+            privacy: "Privasi sejak Perancangan",
+            data_visualization: "Visualisasi Data",
+            plugin_development: "Pengembangan Plugin",
+            gameplay_systems: "Sistem Gameplay",
         }
     },
     achievements: {

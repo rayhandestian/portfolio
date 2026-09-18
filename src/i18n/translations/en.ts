@@ -84,14 +84,26 @@ export const en = {
   },
   skills: {
     title: "Skills",
-    subtitle: "The stack I work with.",
+    subtitle: "Tools and skills behind my projects.",
     categories: {
       languages: "Languages",
-      frameworks: "Frameworks",
-      game_dev: "Game Dev",
-      databases: "Databases",
+      frameworks: "Frameworks & Libraries",
+      web: "Web Development",
+      security: "Security & Privacy",
+      game_dev: "Minecraft Development",
+      databases: "Databases & Storage",
       devops: "DevOps & Cloud",
-      other: "Other",
+      other: "Data, ML & IoT",
+    },
+    items: {
+      payments: "Payment Integration",
+      authentication: "Authentication",
+      security_research: "Security Research",
+      vulnerability_discovery: "Vulnerability Discovery",
+      privacy: "Privacy by Design",
+      data_visualization: "Data Visualization",
+      plugin_development: "Plugin Development",
+      gameplay_systems: "Gameplay Systems",
     }
   },
   achievements: {

@@ -11,19 +11,27 @@ const t = useTranslations(lang);
 const skillGroups = [
   {
     category: t('skills.categories.languages'),
-    skills: ["Java", "JavaScript", "TypeScript", "Python", "Dart", "SQL"],
+    skills: ["TypeScript", "JavaScript", "Java", "Python", "Dart", "SQL"],
   },
   {
     category: t('skills.categories.frameworks'),
-    skills: ["Next.js", "React", "Node.js", "Hono", "Flutter", "Discord.js"],
+    skills: ["Next.js", "React", "Node.js", "Hono", "Tailwind CSS", "Prisma", "Flutter", "discord.js"],
+  },
+  {
+    category: t('skills.categories.web'),
+    skills: [t('skills.items.payments'), "Webhooks", t('skills.items.authentication')],
+  },
+  {
+    category: t('skills.categories.security'),
+    skills: [t('skills.items.security_research'), t('skills.items.vulnerability_discovery'), t('skills.items.privacy')],
   },
   {
     category: t('skills.categories.game_dev'),
-    skills: ["Spigot", "Velocity", "Skript", "Plugin Development"],
+    skills: ["Spigot", "Velocity", "Skript", t('skills.items.plugin_development'), t('skills.items.gameplay_systems')],
   },
   {
     category: t('skills.categories.databases'),
-    skills: ["MongoDB", "MariaDB", "PostgreSQL", "Redis"],
+    skills: ["MongoDB", "MariaDB", "PostgreSQL", "Redis", "Cloudflare D1", "Cloudflare KV", "Supabase", "Firebase"],
   },
   {
     category: t('skills.categories.devops'),
@@ -31,7 +39,7 @@ const skillGroups = [
   },
   {
     category: t('skills.categories.other'),
-    skills: ["Cybersecurity", "IoT (ESP32)", "TensorFlow", "CNN", "Data Science"],
+    skills: [t('skills.items.data_visualization'), "TensorFlow", "IoT (ESP32)"],
   },
 ];
 ---
