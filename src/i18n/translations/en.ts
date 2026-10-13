@@ -114,6 +114,7 @@ export const en = {
         date: "2026",
         title: "Microsoft Security Response Center",
         advisories: [
+          "Credited as 1 of 2 finders of a remote code execution in Visual Studio Code (Important, CVSS 9.6).",
           "Credited as sole finder of an information disclosure in Visual Studio Code (Important, CVSS 6.5).",
           "Credited as 1 of 2 finders of a security feature bypass in VS Code Copilot Chat (Important, CVSS 7.1).",
           "Credited as 1 of 22 finders of a remote code execution in Windows PowerShell (Important, CVSS 8.0).",
@@ -132,7 +133,7 @@ export const en = {
     paragraphs: [
       "I graduated from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026 with a bachelor's degree in Computer Science. My thesis implemented privacy features for online game platforms based on UU PDP. I build and operate web applications and game systems.",
       "I'm the founder and sole full-stack developer behind <strong>Kaizen Network</strong>, an Indonesian Minecraft server network with 100,000+ registered accounts and 150 peak concurrent players. I own the TypeScript/Next.js applications, payment integrations, custom Java plugins and cloud operations from implementation to deployment.",
-      "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025. Outside of that, I explore AI/ML, dabble in IoT, and do security research on the side, including three Microsoft-credited vulnerability finds in Visual Studio Code and Windows PowerShell."
+      "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025. Outside of that, I explore AI/ML, dabble in IoT, and do security research on the side, including four Microsoft-credited vulnerability finds in Visual Studio Code and Windows PowerShell."
     ]
   },
   contact: {

@@ -114,6 +114,7 @@ export const id = {
                 date: "2026",
                 title: "Microsoft Security Response Center",
                 advisories: [
+                    "Diakui sebagai 1 dari 2 penemu remote code execution di Visual Studio Code (Important, CVSS 9.6).",
                     "Diakui sebagai penemu tunggal information disclosure di Visual Studio Code (Important, CVSS 6.5).",
                     "Diakui sebagai 1 dari 2 penemu security feature bypass di Copilot Chat VS Code (Important, CVSS 7.1).",
                     "Diakui sebagai 1 dari 22 penemu remote code execution di Windows PowerShell (Important, CVSS 8.0).",
@@ -132,7 +133,7 @@ export const id = {
         paragraphs: [
             "Saya lulus dari program studi Ilmu Komputer di <strong>Universitas Pertamina</strong> pada Agustus 2026. Tugas akhir saya menerapkan fitur privasi untuk platform game online berdasarkan UU PDP. Saya membangun dan menjalankan aplikasi web serta sistem game.",
             "Saya adalah pendiri sekaligus full-stack developer tunggal di balik <strong>Kaizen Network</strong>, jaringan server Minecraft Indonesia dengan 100.000+ akun terdaftar dan puncak 150 pemain bersamaan. Saya menangani aplikasi TypeScript/Next.js, integrasi pembayaran, plugin Java kustom dan operasional cloud, dari implementasi hingga deployment.",
-            "Saya juga mendirikan <strong>Packvertise</strong>, startup iklan di kemasan makanan yang masuk top 7 dari 31 tim di UPER CASE IB 2025. Di luar itu, saya menjelajahi AI/ML, berkecimpung di IoT, dan melakukan riset keamanan, termasuk tiga temuan kerentanan di Visual Studio Code dan Windows PowerShell yang diakui Microsoft."
+            "Saya juga mendirikan <strong>Packvertise</strong>, startup iklan di kemasan makanan yang masuk top 7 dari 31 tim di UPER CASE IB 2025. Di luar itu, saya menjelajahi AI/ML, berkecimpung di IoT, dan melakukan riset keamanan, termasuk empat temuan kerentanan di Visual Studio Code dan Windows PowerShell yang diakui Microsoft."
         ]
     },
     contact: {
