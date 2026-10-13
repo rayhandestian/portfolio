@@ -35,12 +35,7 @@ const { title, description, stack = [], tags = [], link, github, image, extraLin
   <div class="project-content">
     {tags.length > 0 && (
       <p class="project-tags">
-        {tags.map((tag, i) => (
-          <>
-            {i > 0 && <span class="tag-sep" aria-hidden="true">·</span>}
-            <span class="project-tag">{tag}</span>
-          </>
-        ))}
+        {tags.map(tag => <span class="project-tag">{tag}</span>)}
       </p>
     )}
     <h3 class="project-title">{title}</h3>
@@ -126,19 +121,21 @@ const { title, description, stack = [], tags = [], link, github, image, extraLin
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0 var(--space-xs);
-    margin-bottom: var(--space-xs);
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
     font-family: var(--font-mono);
     font-size: 0.7rem;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     line-height: 1.6;
   }
 
-  .tag-sep {
-    opacity: 0.5;
+  .project-tag {
+    padding: 0.1rem 0.45rem;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-sm);
   }
 
   .project-stack {
