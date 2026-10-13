@@ -9,10 +9,9 @@ export const en = {
     switch_lang: "Bahasa Indonesia",
   },
   hero: {
-    greeting: "Hi, I'm",
     name: "Rayhan Destian",
-    tagline: "Full-Stack Developer · TypeScript & Next.js",
-    description: "Full-stack developer and Computer Science graduate building and operating live web and game systems. Founder and sole developer of Kaizen Network since 2022.",
+    tagline: "Full-Stack Developer · Game Server Founder · Security Researcher",
+    description: "Founder and sole developer of Kaizen Network, an Indonesian Minecraft server network running since 2022. I build and operate live web and game systems.",
     cta_contact: "Contact me",
     cta_github: "GitHub",
     cta_linkedin: "LinkedIn",
@@ -131,9 +130,10 @@ export const en = {
   about: {
     title: "About",
     paragraphs: [
-      "I graduated from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026 with a bachelor's degree in Computer Science. My thesis implemented privacy features for online game platforms based on UU PDP. I build and operate web applications and game systems.",
-      "I'm the founder and sole full-stack developer behind <strong>Kaizen Network</strong>, an Indonesian Minecraft server network with 100,000+ registered accounts and 150 peak concurrent players. I own the TypeScript/Next.js applications, payment integrations, custom Java plugins and cloud operations from implementation to deployment.",
-      "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025. Outside of that, I explore AI/ML, dabble in IoT, and do security research on the side, including four Microsoft-credited vulnerability finds in Visual Studio Code and Windows PowerShell."
+      "I'm the founder and sole developer of <strong>Kaizen Network</strong>, an Indonesian Minecraft server network I've run since 2022. It has grown to 100,000+ registered accounts and 150 peak concurrent players. I own the whole stack: TypeScript/Next.js applications, payment integrations, custom Java plugins and cloud operations, from implementation to deployment.",
+      "I graduated in Computer Science from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026. My thesis implemented privacy features for online game platforms based on UU PDP.",
+      "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025.",
+      "On the side, I do security research, with four Microsoft-credited vulnerability finds in Visual Studio Code and Windows PowerShell. I also explore AI/ML and dabble in IoT."
     ]
   },
   contact: {

@@ -11,7 +11,6 @@ const t = useTranslations(lang);
 
 <section class="hero" id="hero">
   <div class="container hero-container">
-    <p class="hero-greeting animate-fade-in">{t('hero.greeting')}</p>
     <h1 class="hero-name animate-fade-in animate-delay-1">{t('hero.name')}</h1>
     <p class="hero-tagline animate-fade-in animate-delay-2">
       {t('hero.tagline')}
@@ -53,14 +52,6 @@ const t = useTranslations(lang);
     max-width: 800px;
     margin: 0 auto;
     padding: var(--space-xl) var(--space-lg);
-  }
-
-  .hero-greeting {
-    font-size: 1.125rem;
-    color: var(--color-accent);
-    font-weight: 500;
-    margin-bottom: var(--space-xs);
-    opacity: 0;
   }
 
   .hero-name {
