@@ -22,6 +22,7 @@ export const en = {
     subtitle: "A selection of work I'm proud of.",
     count: "{n} projects",
     groups: {
+      plugins: "Minecraft plugins",
       web: "Web apps",
       other: "Mobile, IoT and machine learning",
     },
@@ -49,6 +50,26 @@ export const en = {
       }
     },
     list: {
+      consentgate: {
+        title: "ConsentGate",
+        tagline: "In-game rules and policy agreements",
+        description: "Shows a server's rules and policies to players before they can play, and records their acceptance. Runs on Velocity, Paper and Spigot, with translated and versioned documents and Bedrock forms through Geyser. No website or extra hosting needed.",
+      },
+      origingate: {
+        title: "OriginGate",
+        tagline: "VPN, proxy and country checks at login",
+        description: "Kicks VPN, proxy and out-of-country players at login on Bukkit, Spigot, Paper, BungeeCord and Velocity. Combines IP data from several providers or a local MaxMind file, saves each lookup, and has a dry-run mode for testing rules.",
+      },
+      nexusshout: {
+        title: "NexusShout",
+        tagline: "Global chat across a proxy network",
+        description: "Global chat plugin for Velocity and BungeeCord that lets players talk across every server on a network, with anti-spam and mute support, private messages and Discord integration.",
+      },
+      minecraftserver_id: {
+        title: "MinecraftServer.ID",
+        tagline: "Minecraft server listing for Indonesia",
+        description: "Server listing site for the Indonesian Minecraft community. A Next.js frontend, an Express REST API and BullMQ background workers share TypeScript types and Zod validators in a Turborepo monorepo, with PostgreSQL and Redis.",
+      },
       thesis: {
         title: "Privacy Features for Kaizen Network",
         tagline: "Undergraduate thesis on UU PDP privacy features",

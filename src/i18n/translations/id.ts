@@ -22,6 +22,7 @@ export const id = {
         subtitle: "Kumpulan karya yang saya banggakan.",
         count: "{n} proyek",
         groups: {
+            plugins: "Plugin Minecraft",
             web: "Aplikasi web",
             other: "Mobile, IoT dan machine learning",
         },
@@ -49,6 +50,26 @@ export const id = {
             }
         },
         list: {
+            consentgate: {
+                title: "ConsentGate",
+                tagline: "Persetujuan aturan dan kebijakan di dalam game",
+                description: "Menampilkan aturan dan kebijakan server kepada pemain sebelum mereka bisa bermain, lalu mencatat persetujuan mereka. Berjalan di Velocity, Paper dan Spigot, dengan dokumen yang punya terjemahan dan versi, serta form Bedrock lewat Geyser. Tidak perlu situs web atau hosting tambahan.",
+            },
+            origingate: {
+                title: "OriginGate",
+                tagline: "Pemeriksaan VPN, proxy dan negara saat login",
+                description: "Menolak pemain yang memakai VPN, proxy atau terhubung dari negara yang tidak diizinkan saat login di Bukkit, Spigot, Paper, BungeeCord dan Velocity. Menggabungkan data IP dari beberapa penyedia atau file MaxMind lokal, menyimpan setiap hasil pencarian, dan punya mode uji coba untuk menguji aturan.",
+            },
+            nexusshout: {
+                title: "NexusShout",
+                tagline: "Chat global di seluruh jaringan proxy",
+                description: "Plugin chat global untuk Velocity dan BungeeCord agar pemain bisa mengobrol di semua server dalam satu jaringan, dengan anti-spam dan dukungan mute, pesan pribadi, serta integrasi Discord.",
+            },
+            minecraftserver_id: {
+                title: "MinecraftServer.ID",
+                tagline: "Daftar server Minecraft Indonesia",
+                description: "Situs daftar server untuk komunitas Minecraft Indonesia. Frontend Next.js, REST API Express dan worker latar BullMQ berbagi tipe TypeScript dan validator Zod dalam monorepo Turborepo, dengan PostgreSQL dan Redis.",
+            },
             thesis: {
                 title: "Fitur Privasi untuk Kaizen Network",
                 tagline: "Tugas akhir tentang fitur privasi berbasis UU PDP",
