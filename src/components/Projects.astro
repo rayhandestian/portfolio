@@ -1,5 +1,5 @@
 ---
-import ProjectCard from './ProjectCard.astro';
+import ProjectRow from './ProjectRow.astro';
 import { useTranslations } from '../i18n/utils';
 
 interface Props {
@@ -49,7 +49,6 @@ const kaizenProjects = [
       { name: "MariaDB", icon: icons["MariaDB"] },
       { name: "Redis", icon: icons["Redis"] },
     ],
-    tags: ["Minecraft", "Game Dev"],
   },
   {
     title: t('projects.kaizen.web_platform.title'),
@@ -60,7 +59,6 @@ const kaizenProjects = [
       { name: "MongoDB", icon: icons["MongoDB"] },
       { name: "Cloudflare", icon: icons["Cloudflare"] },
     ],
-    tags: ["Full-Stack", "E-commerce"],
   },
   {
     title: t('projects.kaizen.infrastructure.title'),
@@ -71,7 +69,6 @@ const kaizenProjects = [
       { name: "Pterodactyl", icon: icons["Pterodactyl"] },
       { name: "discord.js", icon: icons["discord.js"] },
     ],
-    tags: ["DevOps", "Cloud"],
   },
 ];
 
@@ -80,108 +77,103 @@ const featuredStats = [
   { value: "100,000+", label: t('projects.featured.stats.accounts') },
 ];
 
-const otherProjects = [
+// Each item's title, tagline and description come from projects.list.<key> in the translations.
+const projectGroups = [
   {
-    title: t('projects.list.thesis.title'),
-    description: t('projects.list.thesis.description'),
-    stack: [
-      { name: "Next.js", icon: icons["Next.js"] },
-      { name: "TypeScript", icon: icons["TypeScript"] },
-      { name: "Skript", icon: null },
-    ],
-    tags: ["Thesis", "Privacy by Design"],
-    extraLinks: [
-      { href: "https://perpustakaan.universitaspertamina.ac.id/xmlui/handle/123456789/16378", label: t('projects.list.thesis.link_thesis') },
-      { href: "/docs/poster-tugas-akhir.pdf", label: t('projects.list.thesis.link_poster') },
+    key: "web",
+    items: [
+      {
+        key: "thesis",
+        stack: [
+          { name: "Next.js", icon: icons["Next.js"] },
+          { name: "TypeScript", icon: icons["TypeScript"] },
+          { name: "Skript", icon: null },
+        ],
+        extraLinks: [
+          { href: "https://perpustakaan.universitaspertamina.ac.id/xmlui/handle/123456789/16378", label: t('projects.list.thesis.link_thesis') },
+          { href: "/docs/poster-tugas-akhir.pdf", label: t('projects.list.thesis.link_poster') },
+        ],
+      },
+      {
+        key: "top_mc",
+        stack: [
+          { name: "Next.js", icon: icons["Next.js"] },
+          { name: "React", icon: icons["React"] },
+          { name: "TypeScript", icon: icons["TypeScript"] },
+        ],
+        link: "https://kaizenmc.id/blog/server-minecraft-indonesia-terbaik",
+        image: "/images/projects/top-mc-servers-1920-1080.webp",
+      },
+      {
+        key: "packvertise",
+        stack: [
+          { name: "Next.js", icon: icons["Next.js"] },
+          { name: "TypeScript", icon: icons["TypeScript"] },
+          { name: "Supabase", icon: icons["Supabase"] },
+          { name: "Tailwind CSS", icon: icons["Tailwind CSS"] },
+        ],
+        link: "https://packvertise.id/",
+        image: "/images/projects/packvertise-1920-1080.webp",
+        extraLinks: [
+          { href: "https://perpustakaan.universitaspertamina.ac.id/xmlui/handle/123456789/16487", label: t('projects.list.packvertise.link_report') },
+        ],
+      },
+      {
+        key: "uperli",
+        stack: [
+          { name: "Next.js", icon: icons["Next.js"] },
+          { name: "TypeScript", icon: icons["TypeScript"] },
+          { name: "PostgreSQL", icon: icons["PostgreSQL"] },
+          { name: "Prisma", icon: icons["Prisma"] },
+        ],
+        link: "https://uper.li/",
+        github: "https://github.com/rayhandestian/uper-li",
+        image: "/images/projects/uper-li-1920-1080.webp",
+      },
+      {
+        key: "cloudshort",
+        stack: [
+          { name: "Cloudflare", icon: icons["Cloudflare"] },
+          { name: "Hono", icon: icons["Hono"] },
+          { name: "React", icon: icons["React"] },
+          { name: "TypeScript", icon: icons["TypeScript"] },
+        ],
+        github: "https://github.com/rayhandestian/cloudshort",
+        image: "/images/projects/cloudshort-1920-1080.webp",
+      },
     ],
   },
   {
-    title: t('projects.list.top_mc.title'),
-    description: t('projects.list.top_mc.description'),
-    stack: [
-      { name: "Next.js", icon: icons["Next.js"] },
-      { name: "React", icon: icons["React"] },
-      { name: "TypeScript", icon: icons["TypeScript"] },
+    key: "other",
+    items: [
+      {
+        key: "quickbites",
+        stack: [
+          { name: "Flutter", icon: icons["Flutter"] },
+          { name: "Firebase", icon: icons["Firebase"] },
+        ],
+        github: "https://github.com/rayhandestian/quickbites",
+        image: "/images/projects/quickbites-1920-1080.webp",
+      },
+      {
+        key: "water_tank",
+        stack: [
+          { name: "MicroPython", icon: icons["MicroPython"] },
+          { name: "Node.js", icon: icons["Node.js"] },
+          { name: "MySQL", icon: icons["MySQL"] },
+        ],
+        github: "https://github.com/rayhandestian/KEL11-SMART-WATER-TANK-MONITORING-SYSTEM",
+      },
+      {
+        key: "emotion_cnn",
+        stack: [
+          { name: "Python", icon: icons["Python"] },
+          { name: "TensorFlow", icon: icons["TensorFlow"] },
+          { name: "Google Colab", icon: icons["Google Colab"] },
+        ],
+        github: "https://github.com/rayhandestian/Emotion-Detection-CNN-TF",
+      },
     ],
-    tags: ["Data Visualization", "Minecraft"],
-    link: "https://kaizenmc.id/blog/server-minecraft-indonesia-terbaik",
-    image: "/images/projects/top-mc-servers-1920-1080.webp",
-  },
-  {
-    title: t('projects.list.cloudshort.title'),
-    description: t('projects.list.cloudshort.description'),
-    stack: [
-      { name: "Cloudflare", icon: icons["Cloudflare"] },
-      { name: "Hono", icon: icons["Hono"] },
-      { name: "React", icon: icons["React"] },
-      { name: "TypeScript", icon: icons["TypeScript"] },
-    ],
-    tags: ["URL Shortener", "Serverless"],
-    github: "https://github.com/rayhandestian/cloudshort",
-    image: "/images/projects/cloudshort-1920-1080.webp",
-  },
-  {
-    title: t('projects.list.uperli.title'),
-    description: t('projects.list.uperli.description'),
-    stack: [
-      { name: "Next.js", icon: icons["Next.js"] },
-      { name: "TypeScript", icon: icons["TypeScript"] },
-      { name: "PostgreSQL", icon: icons["PostgreSQL"] },
-      { name: "Prisma", icon: icons["Prisma"] },
-    ],
-    tags: ["URL Shortener", "University Project"],
-    link: "https://uper.li/",
-    github: "https://github.com/rayhandestian/uper-li",
-    image: "/images/projects/uper-li-1920-1080.webp",
-  },
-  {
-    title: t('projects.list.quickbites.title'),
-    description: t('projects.list.quickbites.description'),
-    stack: [
-      { name: "Flutter", icon: icons["Flutter"] },
-      { name: "Firebase", icon: icons["Firebase"] },
-    ],
-    tags: ["Mobile App", "Food Ordering"],
-    github: "https://github.com/rayhandestian/quickbites",
-    image: "/images/projects/quickbites-1920-1080.webp",
-  },
-  {
-    title: t('projects.list.packvertise.title'),
-    description: t('projects.list.packvertise.description'),
-    stack: [
-      { name: "Next.js", icon: icons["Next.js"] },
-      { name: "TypeScript", icon: icons["TypeScript"] },
-      { name: "Supabase", icon: icons["Supabase"] },
-      { name: "Tailwind CSS", icon: icons["Tailwind CSS"] },
-    ],
-    tags: ["Startup", "Business Pitching", "MBKM"],
-    link: "https://packvertise.id/",
-    image: "/images/projects/packvertise-1920-1080.webp",
-    extraLinks: [
-      { href: "https://perpustakaan.universitaspertamina.ac.id/xmlui/handle/123456789/16487", label: t('projects.list.packvertise.link_report') },
-    ],
-  },
-  {
-    title: t('projects.list.water_tank.title'),
-    description: t('projects.list.water_tank.description'),
-    stack: [
-      { name: "MicroPython", icon: icons["MicroPython"] },
-      { name: "Node.js", icon: icons["Node.js"] },
-      { name: "MySQL", icon: icons["MySQL"] },
-    ],
-    tags: ["IoT", "Embedded"],
-    github: "https://github.com/rayhandestian/KEL11-SMART-WATER-TANK-MONITORING-SYSTEM",
-  },
-  {
-    title: t('projects.list.emotion_cnn.title'),
-    description: t('projects.list.emotion_cnn.description'),
-    stack: [
-      { name: "Python", icon: icons["Python"] },
-      { name: "TensorFlow", icon: icons["TensorFlow"] },
-      { name: "Google Colab", icon: icons["Google Colab"] },
-    ],
-    tags: ["AI/ML", "Computer Vision"],
-    github: "https://github.com/rayhandestian/Emotion-Detection-CNN-TF",
   },
 ];
 ---
@@ -216,56 +208,59 @@ const otherProjects = [
         </a>
       </div>
       
-      <div class="projects-grid kaizen-grid">
-        {kaizenProjects.map(project => (
-          <ProjectCard
-            title={project.title}
-            description={project.description}
-            stack={project.stack}
-            tags={project.tags}
-          />
+      <div class="kaizen-areas">
+        {kaizenProjects.map(area => (
+          <div class="kaizen-area">
+            <h4 class="kaizen-area-title">{area.title}</h4>
+            <p class="kaizen-area-description">{area.description}</p>
+            <div class="kaizen-area-stack">
+              {area.stack.map(item => (
+                <span class="tag">
+                  {item.icon && <Fragment set:html={item.icon} />}
+                  {item.name}
+                </span>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
 
-    <!-- Removed Other Works header -->
-    <div class="projects-grid">
-      {otherProjects.map(project => (
-        <ProjectCard
-          title={project.title}
-          description={project.description}
-          stack={project.stack}
-          tags={project.tags}
-          link={project.link}
-          github={project.github}
-          image={project.image}
-          extraLinks={project.extraLinks}
-        />
+    <div class="project-groups">
+      {projectGroups.map(group => (
+        <article class="project-group card">
+          <div class="project-group-head">
+            <h3 class="project-group-title">{t(`projects.groups.${group.key}`)}</h3>
+            <span class="project-group-count">{String(t('projects.count')).replace('{n}', String(group.items.length))}</span>
+          </div>
+          <div>
+            {group.items.map(item => (
+              <ProjectRow
+                title={t(`projects.list.${item.key}.title`)}
+                tagline={t(`projects.list.${item.key}.tagline`)}
+                description={t(`projects.list.${item.key}.description`)}
+                stack={item.stack}
+                link={item.link}
+                github={item.github}
+                image={item.image}
+                extraLinks={item.extraLinks}
+              />
+            ))}
+          </div>
+        </article>
       ))}
     </div>
   </div>
 </section>
 
 <style>
-  .projects-grid {
-    column-count: 2;
-    column-gap: var(--space-lg);
-    width: 100%;
-  }
-
-  @media (max-width: 900px) {
-    .projects-grid {
-      column-count: 1;
-    }
-  }
-
   .featured-group {
     background: var(--color-bg-card);
     border: 1px solid var(--color-card-border);
     box-shadow: var(--shadow-card);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-lg);
     text-align: left;
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
   }
@@ -342,51 +337,100 @@ const otherProjects = [
   }
 
   .featured-stat-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
   }
 
   .featured-btn {
     flex-shrink: 0;
   }
 
-  .kaizen-grid {
-    padding: 0 var(--space-xl) var(--space-xl);
+  .kaizen-areas {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
   }
 
-  @media (max-width: 1024px) {
-    .kaizen-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .kaizen-area {
+    padding: var(--space-lg) var(--space-xl);
   }
 
-  @media (max-width: 768px) {
-    .kaizen-grid {
-      grid-template-columns: 1fr;
-      padding: 0 var(--space-md) var(--space-md);
-    }
+  .kaizen-area + .kaizen-area {
+    border-left: 1px solid var(--color-border);
   }
 
-  .section-heading-small {
-    font-size: 1.25rem;
-    margin-bottom: var(--space-lg);
+  .kaizen-area-title {
+    font-size: 1rem;
     color: var(--color-text-primary);
-    text-align: left;
-    padding-left: var(--space-md);
+    margin-bottom: var(--space-xs);
   }
-  
+
+  .kaizen-area-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .kaizen-area-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+  }
+
+  .project-groups {
+    display: grid;
+    gap: var(--space-lg);
+    text-align: left;
+  }
+
+  .project-group {
+    padding: var(--space-lg);
+  }
+
+  .project-group-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .project-group-title {
+    font-size: 1.1rem;
+  }
+
+  .project-group-count {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .kaizen-areas {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .kaizen-area + .kaizen-area {
+      border-left: none;
+      border-top: 1px solid var(--color-border);
+    }
+  }
+
   @media (max-width: 768px) {
     .featured-content {
       padding: var(--space-md);
     }
-    
-    .projects-grid {
-      grid-template-columns: 1fr;
+
+    .kaizen-area {
+      padding: var(--space-md);
+    }
+
+    .project-group {
+      padding: var(--space-md);
     }
   }
 </style>

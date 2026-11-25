@@ -20,6 +20,11 @@ export const id = {
     projects: {
         title: "Proyek",
         subtitle: "Kumpulan karya yang saya banggakan.",
+        count: "{n} proyek",
+        groups: {
+            web: "Aplikasi web",
+            other: "Mobile, IoT dan machine learning",
+        },
         featured: {
             title: "Kaizen Network",
             description: "Jaringan Server Minecraft Indonesia, didirikan dan dijalankan sendiri sejak 2022. Membangun situs web e-commerce full-stack, plugin Java Spigot & Velocity kustom, berbagai skrip Skript, bot Discord, dan mengelola infrastruktur cloud.",
@@ -46,37 +51,45 @@ export const id = {
         list: {
             thesis: {
                 title: "Fitur Privasi untuk Kaizen Network",
+                tagline: "Tugas akhir tentang fitur privasi berbasis UU PDP",
                 description: "Tugas akhir yang menerapkan fitur privasi berdasarkan UU Pelindungan Data Pribadi (UU PDP): persetujuan di dalam game, portal Next.js untuk akses dan penghapusan data, catatan audit, serta retensi otomatis.",
                 link_thesis: "Baca tugas akhir",
                 link_poster: "Lihat poster",
             },
             top_mc: {
                 title: "Top MC Servers Indonesia",
+                tagline: "Riwayat peringkat server Minecraft terbaik Indonesia",
                 description: "Sejarah peringkat interaktif server Minecraft terbaik Indonesia dari 2012 hingga 2026, dibangun ulang dari 49 snapshot Wayback Machine yang mencakup 150+ server. Bump chart kustom dengan dataset yang bisa diunduh, diterbitkan di blog Kaizen Network.",
             },
             cloudshort: {
                 title: "Cloudshort",
+                tagline: "Penyingkat URL pribadi di Cloudflare Workers",
                 description: "Penyingkat URL pribadi dengan TypeScript, Cloudflare Workers dan Hono. Menggunakan KV untuk pengalihan tautan, D1 untuk analitik klik, serta dashboard admin React dengan autentikasi JWT/cookie.",
             },
             uperli: {
                 title: "UPer.li",
+                tagline: "Penyingkat URL untuk Universitas Pertamina",
                 description: "Penyingkat URL eksklusif universitas untuk Universitas Pertamina. Menampilkan autentikasi berbasis peran, 2FA, kode QR, dashboard analitik, dan integrasi Google Safe Browsing.",
             },
             quickbites: {
                 title: "QuickBites",
+                tagline: "Aplikasi pemesanan makanan seluler",
                 description: "Aplikasi pemesanan makanan seluler yang menampilkan pelacakan pesanan real-time, dashboard penjual, dan integrasi backend Firebase yang mulus.",
             },
             packvertise: {
                 title: "Packvertise",
+                tagline: "Startup iklan di kemasan makanan",
                 description: "Startup yang saya dirikan sendiri, menempatkan iklan brand di kemasan makanan sekali pakai: pengiklan menjangkau pelanggan saat mereka makan, penjual dapat kemasan gratis plus bagi hasil. Mendistribusikan 1.000 kemasan dengan pelacakan QR lewat dua kantin kampus, plus satu kampanye pilot untuk klien. Top 7 dari 31 tim di UPER CASE IB 2025.",
                 link_report: "Laporan MBKM",
             },
             water_tank: {
                 title: "Smart Water Tank",
+                tagline: "Pemantau level air dan kontrol pompa berbasis IoT",
                 description: "Solusi IoT untuk pemantauan level air real-time dan kontrol pompa otomatis menggunakan ESP32 dan integrasi aplikasi web.",
             },
             emotion_cnn: {
                 title: "Emotion Detection CNN",
+                tagline: "Deteksi emosi wajah dengan CNN",
                 description: "Model deep learning yang mencapai akurasi 61% dalam mendeteksi 7 kelas emosi wajah menggunakan Convolutional Neural Networks.",
             }
         }

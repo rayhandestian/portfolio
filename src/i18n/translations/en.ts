@@ -20,6 +20,11 @@ export const en = {
   projects: {
     title: "Projects",
     subtitle: "A selection of work I'm proud of.",
+    count: "{n} projects",
+    groups: {
+      web: "Web apps",
+      other: "Mobile, IoT and machine learning",
+    },
     featured: {
       title: "Kaizen Network",
       description: "Indonesian Minecraft Server Network, founded and run solo since 2022. Built a full-stack e-commerce website, custom Java Spigot & Velocity plugins, various Skript scripts, Discord bots, and managed cloud infrastructure.",
@@ -46,37 +51,45 @@ export const en = {
     list: {
       thesis: {
         title: "Privacy Features for Kaizen Network",
+        tagline: "Undergraduate thesis on UU PDP privacy features",
         description: "Undergraduate thesis implementing privacy features based on Indonesia's Personal Data Protection Law (UU PDP): in-game consent, a Next.js portal for data access and deletion, audit trails and automated retention.",
         link_thesis: "Read thesis",
         link_poster: "View poster",
       },
       top_mc: {
         title: "Top MC Servers Indonesia",
+        tagline: "Ranking history of Indonesia's top Minecraft servers",
         description: "Interactive ranking history of Indonesia's top Minecraft servers from 2012 to 2026, rebuilt from 49 Wayback Machine snapshots covering 150+ servers. Custom bump charts with a downloadable dataset, published on the Kaizen Network blog.",
       },
       cloudshort: {
         title: "Cloudshort",
+        tagline: "Private URL shortener on Cloudflare Workers",
         description: "Private URL shortener built with TypeScript, Cloudflare Workers and Hono. Uses KV-backed redirects, D1 click analytics and a React admin dashboard protected by JWT/cookie authentication.",
       },
       uperli: {
         title: "UPer.li",
+        tagline: "URL shortener for Universitas Pertamina",
         description: "University-exclusive URL shortener for Universitas Pertamina. Features role-based auth, 2FA, QR codes, analytics dashboard, and Google Safe Browsing integration.",
       },
       quickbites: {
         title: "QuickBites",
+        tagline: "Mobile food ordering app",
         description: "Mobile food ordering app featuring real-time order tracking, seller dashboards, and seamless Firebase backend integration.",
       },
       packvertise: {
         title: "Packvertise",
+        tagline: "Startup placing ads on food packaging",
         description: "Solo-founded startup placing brand ads on disposable food packaging: advertisers reach customers where they eat, vendors get free packaging plus a revenue share. Distributed 1,000 QR-tracked packages through two campus canteens and ran a pilot campaign for one client. Top 7 of 31 teams at UPER CASE IB 2025.",
         link_report: "MBKM report",
       },
       water_tank: {
         title: "Smart Water Tank",
+        tagline: "IoT water level monitor and pump control",
         description: "IoT solution for real-time water level monitoring and automated pump control using ESP32 and web app integration.",
       },
       emotion_cnn: {
         title: "Emotion Detection CNN",
+        tagline: "Facial emotion detection with a CNN",
         description: "Deep learning model achieving 61% accuracy in detecting 7 facial emotion classes using Convolutional Neural Networks.",
       }
     }
