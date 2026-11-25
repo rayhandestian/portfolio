@@ -169,7 +169,7 @@ export const en = {
       "I'm the founder and sole developer of <strong>Kaizen Network</strong>, an Indonesian Minecraft server network I've run since 2022. It has grown to 100,000+ registered accounts and 150 peak concurrent players. I own the whole stack: TypeScript/Next.js applications, payment integrations, custom Java plugins and cloud operations, from implementation to deployment.",
       "I graduated in Computer Science from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026. My thesis implemented privacy features for online game platforms based on UU PDP.",
       "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025.",
-      "On the side, I do security research, with four Microsoft-credited vulnerability finds in Visual Studio Code and Windows PowerShell. I also explore AI/ML and dabble in IoT."
+      "On the side, I do security research, with seven Microsoft-credited vulnerability finds in Visual Studio Code, Windows PowerShell and .NET. I also explore AI/ML and dabble in IoT."
     ]
   },
   contact: {

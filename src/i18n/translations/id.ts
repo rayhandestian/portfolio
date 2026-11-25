@@ -169,7 +169,7 @@ export const id = {
             "Saya adalah pendiri sekaligus pengembang tunggal <strong>Kaizen Network</strong>, jaringan server Minecraft Indonesia yang saya jalankan sejak 2022. Kini jaringan ini memiliki 100.000+ akun terdaftar dan puncak 150 pemain bersamaan. Saya menangani seluruh stack: aplikasi TypeScript/Next.js, integrasi pembayaran, plugin Java kustom dan operasional cloud, dari implementasi hingga deployment.",
             "Saya lulus dari program studi Ilmu Komputer di <strong>Universitas Pertamina</strong> pada Agustus 2026. Tugas akhir saya menerapkan fitur privasi untuk platform game online berdasarkan UU PDP.",
             "Saya juga mendirikan <strong>Packvertise</strong>, startup iklan di kemasan makanan yang masuk top 7 dari 31 tim di UPER CASE IB 2025.",
-            "Di luar itu, saya melakukan riset keamanan, dengan empat temuan kerentanan di Visual Studio Code dan Windows PowerShell yang diakui Microsoft. Saya juga menjelajahi AI/ML dan berkecimpung di IoT."
+            "Di luar itu, saya melakukan riset keamanan, dengan tujuh temuan kerentanan di Visual Studio Code, Windows PowerShell dan .NET yang diakui Microsoft. Saya juga menjelajahi AI/ML dan berkecimpung di IoT."
         ]
     },
     contact: {
