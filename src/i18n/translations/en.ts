@@ -112,12 +112,14 @@ export const en = {
       cve: {
         date: "2026",
         title: "Microsoft Security Response Center",
-        advisories: [
-          "Credited as 1 of 2 finders of a remote code execution in Visual Studio Code (Important, CVSS 9.6).",
-          "Credited as sole finder of an information disclosure in Visual Studio Code (Important, CVSS 6.5).",
-          "Credited as 1 of 2 finders of a security feature bypass in VS Code Copilot Chat (Important, CVSS 7.1).",
-          "Credited as 1 of 22 finders of a remote code execution in Windows PowerShell (Important, CVSS 8.0).",
-        ],
+        note: "CVSS 3.1 scores. All rated Important by Microsoft.",
+        sole: "Sole finder",
+        finders: "1 of {n} finders",
+        types: {
+          rce: "Remote code execution",
+          info: "Information disclosure",
+          sfb: "Security feature bypass",
+        },
       },
       upercase: {
         date: "2025",

@@ -8,33 +8,19 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const cveIds = ["CVE-2026-102238", "CVE-2026-47285", "CVE-2026-65675", "CVE-2026-40400"];
-const cveEntries = (t('achievements.items.cve.advisories') as unknown as string[]).map((text, i) => ({
-  text,
-  id: cveIds[i],
-  href: `https://msrc.microsoft.com/update-guide/vulnerability/${cveIds[i]}`,
-}));
-
-const achievements = [
-  {
-    date: t('achievements.items.cve.date'),
-    title: t('achievements.items.cve.title'),
-    badge: `${cveIds.length} CVEs`,
-    entries: cveEntries,
-  },
-  {
-    date: t('achievements.items.upercase.date'),
-    title: t('achievements.items.upercase.title'),
-    badge: "Top 7 / 31",
-    entries: [
-      {
-        text: t('achievements.items.upercase.description'),
-        id: t('achievements.items.upercase.link'),
-        href: "/docs/sertifikat-uper-case-ib-2025.pdf",
-      },
-    ],
-  },
+// Highest CVSS first. Finders = distinct names in Microsoft's acknowledgements, Anonymous counted once.
+const cves = [
+  { id: "CVE-2026-102238", cvss: "9.6", type: "rce", product: "Visual Studio Code", finders: 3 },
+  { id: "CVE-2026-70336", cvss: "8.8", type: "rce", product: "Visual Studio Code", finders: 2 },
+  { id: "CVE-2026-70197", cvss: "8.1", type: "rce", product: ".NET", finders: 19 },
+  { id: "CVE-2026-40400", cvss: "8.0", type: "rce", product: "Windows PowerShell", finders: 28 },
+  { id: "CVE-2026-65675", cvss: "7.1", type: "sfb", product: "VS Code Copilot Chat", finders: 3 },
+  { id: "CVE-2026-47285", cvss: "6.5", type: "info", product: "Visual Studio Code", finders: 1 },
+  { id: "CVE-2026-62801", cvss: "6.5", type: "sfb", product: "Windows PowerShell", finders: 11 },
 ];
+
+const finders = (n: number) =>
+  n === 1 ? t('achievements.items.cve.sole') : String(t('achievements.items.cve.finders')).replace('{n}', String(n));
 ---
 
 <section class="section" id="achievements">
@@ -42,26 +28,43 @@ const achievements = [
     <h2 class="section-title">{t('achievements.title')}</h2>
     <p class="section-subtitle">{t('achievements.subtitle')}</p>
     <div class="achievements-grid">
-      {achievements.map(item => (
-        <article class="achievement card">
-          <div class="achievement-meta">
-            <span class="achievement-badge">{item.badge}</span>
-            <span class="achievement-date">{item.date}</span>
-          </div>
-          <h3 class="achievement-title">{item.title}</h3>
-          <div class="achievement-entries">
-            {item.entries.map(entry => (
-              <div class="achievement-entry">
-                <p class="achievement-description">{entry.text}</p>
-                <a href={entry.href} target="_blank" rel="noopener" class="btn btn-outline btn-sm achievement-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                  {entry.id}
-                </a>
-              </div>
-            ))}
-          </div>
-        </article>
-      ))}
+      <article class="achievement card">
+        <div class="achievement-meta">
+          <span class="achievement-badge">{cves.length} CVEs</span>
+          <span class="achievement-date">{t('achievements.items.cve.date')}</span>
+        </div>
+        <h3 class="achievement-title">{t('achievements.items.cve.title')}</h3>
+        <p class="achievement-description">{t('achievements.items.cve.note')}</p>
+        <ul class="cve-list" style={`--rows: ${Math.ceil(cves.length / 2)}`}>
+          {cves.map(cve => (
+            <li>
+              <a class="cve" href={`https://msrc.microsoft.com/update-guide/vulnerability/${cve.id}`} target="_blank" rel="noopener">
+                <span class="cve-score">{cve.cvss}</span>
+                <span class="cve-type">{t(`achievements.items.cve.types.${cve.type}`)}</span>
+                <span class="cve-product">{cve.product}</span>
+                <span class="cve-id">
+                  {cve.id}
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+                <span class="cve-finders">{finders(cve.finders)}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="achievement card">
+        <div class="achievement-meta">
+          <span class="achievement-badge">Top 7 / 31</span>
+          <span class="achievement-date">{t('achievements.items.upercase.date')}</span>
+        </div>
+        <h3 class="achievement-title">{t('achievements.items.upercase.title')}</h3>
+        <p class="achievement-description">{t('achievements.items.upercase.description')}</p>
+        <a href="/docs/sertifikat-uper-case-ib-2025.pdf" target="_blank" rel="noopener" class="btn btn-outline btn-sm achievement-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          {t('achievements.items.upercase.link')}
+        </a>
+      </article>
     </div>
   </div>
 </section>
@@ -69,8 +72,6 @@ const achievements = [
 <style>
   .achievements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    align-items: start;
     gap: var(--space-lg);
     max-width: 900px;
     margin: 0 auto;
@@ -79,8 +80,6 @@ const achievements = [
   .achievement {
     padding: var(--space-lg);
     text-align: left;
-    display: flex;
-    flex-direction: column;
   }
 
   .achievement-meta {
@@ -107,31 +106,131 @@ const achievements = [
 
   .achievement-title {
     font-size: 1.1rem;
-    margin-bottom: var(--space-sm);
-  }
-
-  .achievement-entries {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    flex-grow: 1;
-  }
-
-  .achievement-entry {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
   }
 
   .achievement-description {
     font-size: 0.95rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
-    margin: 0;
   }
 
   .achievement-link {
-    align-self: flex-start;
+    margin-top: var(--space-md);
+  }
+
+  /* Fill the left column top to bottom, then the right one. */
+  .cve-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(var(--rows), auto);
+    grid-auto-flow: column;
+    column-gap: var(--space-lg);
+    margin-top: var(--space-md);
+  }
+
+  .cve-list li {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cve {
+    display: grid;
+    grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      "score type id"
+      "score product finders";
+    column-gap: var(--space-sm);
+    align-items: baseline;
+    padding: 0.7rem 0.5rem;
+    margin: 0 -0.5rem;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s ease;
+  }
+
+  .cve:hover {
+    background: var(--color-accent-soft);
+  }
+
+  .cve:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+
+  .cve-score {
+    grid-area: score;
+    align-self: center;
+    font-family: var(--font-mono, monospace);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cve-type {
+    grid-area: type;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  .cve-product {
+    grid-area: product;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cve-id {
+    grid-area: id;
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .cve:hover .cve-id {
+    color: var(--color-accent);
+  }
+
+  .cve-finders {
+    grid-area: finders;
+    justify-self: end;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 760px) {
+    .cve-list {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: none;
+      grid-auto-flow: row;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .achievement {
+      padding: var(--space-md);
+    }
+
+    .cve {
+      grid-template-columns: 2.5rem auto minmax(0, 1fr);
+      grid-template-areas:
+        "score type type"
+        "score product product"
+        "score id finders";
+    }
+
+    .cve-id {
+      justify-self: start;
+      white-space: nowrap;
+    }
+
+    .cve-finders {
+      text-align: right;
+    }
   }
 </style>

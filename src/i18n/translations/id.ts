@@ -112,12 +112,14 @@ export const id = {
             cve: {
                 date: "2026",
                 title: "Microsoft Security Response Center",
-                advisories: [
-                    "Diakui sebagai 1 dari 2 penemu remote code execution di Visual Studio Code (Important, CVSS 9.6).",
-                    "Diakui sebagai penemu tunggal information disclosure di Visual Studio Code (Important, CVSS 6.5).",
-                    "Diakui sebagai 1 dari 2 penemu security feature bypass di Copilot Chat VS Code (Important, CVSS 7.1).",
-                    "Diakui sebagai 1 dari 22 penemu remote code execution di Windows PowerShell (Important, CVSS 8.0).",
-                ],
+                note: "Skor CVSS 3.1. Semua dinilai Important oleh Microsoft.",
+                sole: "Penemu tunggal",
+                finders: "1 dari {n} penemu",
+                types: {
+                    rce: "Remote code execution",
+                    info: "Information disclosure",
+                    sfb: "Security feature bypass",
+                },
             },
             upercase: {
                 date: "2025",
