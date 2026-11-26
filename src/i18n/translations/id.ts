@@ -51,7 +51,7 @@ export const id = {
             },
             infrastructure: {
                 title: "Infrastruktur",
-                description: "Menjalankan dan mengelola server game, database, dan bot Discord di Linux, Docker, dan Pterodactyl, dengan MariaDB dan Redis. HetrixTools mencatat rata-rata uptime monitor 99,95% selama 30 hari hingga 12 September 2026, di luar waktu pemeliharaan.",
+                description: "Menjalankan dan mengelola server game, database, dan bot Discord di Linux, Docker, dan Pterodactyl, dengan MariaDB dan Redis. Uptime bulanan tetap di atas 99,9% menurut pemantauan HetrixTools, di luar waktu pemeliharaan.",
             }
         },
         list: {

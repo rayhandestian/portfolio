@@ -51,7 +51,7 @@ export const en = {
       },
       infrastructure: {
         title: "Infrastructure",
-        description: "Deploy and operate game servers, databases, and Discord bots on Linux, Docker, and Pterodactyl, with MariaDB and Redis. HetrixTools reported 99.95% average monitor uptime over the 30 days to 12 September 2026, excluding maintenance.",
+        description: "Deploy and operate game servers, databases, and Discord bots on Linux, Docker, and Pterodactyl, with MariaDB and Redis. Monthly uptime stays above 99.9% on HetrixTools monitoring, excluding maintenance.",
       }
     },
     list: {
