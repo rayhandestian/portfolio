@@ -21,6 +21,23 @@ const cves = [
 
 const finders = (n: number) =>
   n === 1 ? t('achievements.items.cve.sole') : String(t('achievements.items.cve.finders')).replace('{n}', String(n));
+
+// Newest first. Pull requests merged into other people's projects.
+const prs = [
+  { key: "redprotect_locks", repo: "FabioZumbi12/RedProtect", project: "RedProtect", number: 888, merged: "2026-11-03" },
+  { key: "skript", repo: "SkriptLang/Skript", project: "Skript", number: 8902, merged: "2026-10-14" },
+  { key: "boar", repo: "opencollab-incubator/Boar", project: "Boar", number: 96, merged: "2026-08-23" },
+  { key: "redprotect_lectern", repo: "FabioZumbi12/RedProtect", project: "RedProtect", number: 883, merged: "2026-08-12" },
+  { key: "displaynametags", repo: "Matt-MX/DisplayNameTags", project: "DisplayNameTags", number: 52, merged: "2025-03-10" },
+];
+
+const mergedMonth = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-GB', {
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const rows = (n: number) => `--rows: ${Math.ceil(n / 2)}`;
 ---
 
 <section class="section" id="achievements">
@@ -35,18 +52,42 @@ const finders = (n: number) =>
         </div>
         <h3 class="achievement-title">{t('achievements.items.cve.title')}</h3>
         <p class="achievement-description">{t('achievements.items.cve.note')}</p>
-        <ul class="cve-list" style={`--rows: ${Math.ceil(cves.length / 2)}`}>
+        <ul class="entry-list" style={rows(cves.length)}>
           {cves.map(cve => (
             <li>
-              <a class="cve" href={`https://msrc.microsoft.com/update-guide/vulnerability/${cve.id}`} target="_blank" rel="noopener">
+              <a class="entry cve" href={`https://msrc.microsoft.com/update-guide/vulnerability/${cve.id}`} target="_blank" rel="noopener">
                 <span class="cve-score">{cve.cvss}</span>
-                <span class="cve-type">{t(`achievements.items.cve.types.${cve.type}`)}</span>
-                <span class="cve-product">{cve.product}</span>
-                <span class="cve-id">
+                <span class="entry-title">{t(`achievements.items.cve.types.${cve.type}`)}</span>
+                <span class="entry-sub">{cve.product}</span>
+                <span class="entry-ref">
                   {cve.id}
                   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                 </span>
-                <span class="cve-finders">{finders(cve.finders)}</span>
+                <span class="entry-meta">{finders(cve.finders)}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="achievement card">
+        <div class="achievement-meta">
+          <span class="achievement-badge">{String(t('achievements.items.oss.badge')).replace('{n}', String(prs.length))}</span>
+          <span class="achievement-date">{t('achievements.items.oss.date')}</span>
+        </div>
+        <h3 class="achievement-title">{t('achievements.items.oss.title')}</h3>
+        <p class="achievement-description">{t('achievements.items.oss.note')}</p>
+        <ul class="entry-list" style={rows(prs.length)}>
+          {prs.map(pr => (
+            <li>
+              <a class="entry pr" href={`https://github.com/${pr.repo}/pull/${pr.number}`} target="_blank" rel="noopener">
+                <span class="entry-title">{t(`achievements.items.oss.prs.${pr.key}`)}</span>
+                <span class="entry-sub">{pr.project}</span>
+                <span class="entry-ref">
+                  #{pr.number}
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+                <time class="entry-meta" datetime={pr.merged}>{mergedMonth.format(new Date(pr.merged))}</time>
               </a>
             </li>
           ))}
@@ -118,7 +159,7 @@ const finders = (n: number) =>
   }
 
   /* Fill the left column top to bottom, then the right one. */
-  .cve-list {
+  .entry-list {
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -128,16 +169,17 @@ const finders = (n: number) =>
     margin-top: var(--space-md);
   }
 
-  .cve-list li {
+  .entry-list li {
     border-top: 1px solid var(--color-border);
   }
 
-  .cve {
+  /* One linked row: title and sub-line on the left, reference and meta on the right. */
+  .entry {
     display: grid;
-    grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     grid-template-areas:
-      "score type id"
-      "score product finders";
+      "title ref"
+      "sub meta";
     column-gap: var(--space-sm);
     align-items: baseline;
     padding: 0.7rem 0.5rem;
@@ -146,13 +188,58 @@ const finders = (n: number) =>
     transition: background-color 0.2s ease;
   }
 
-  .cve:hover {
+  .entry:hover {
     background: var(--color-accent-soft);
   }
 
-  .cve:focus-visible {
+  .entry:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: -2px;
+  }
+
+  .entry-title {
+    grid-area: title;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  .entry-sub {
+    grid-area: sub;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+  }
+
+  .entry-ref {
+    grid-area: ref;
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .entry:hover .entry-ref {
+    color: var(--color-accent);
+  }
+
+  .entry-meta {
+    grid-area: meta;
+    justify-self: end;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* CVE rows add the CVSS score as a column on the left. */
+  .cve {
+    grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      "score title ref"
+      "score sub meta";
   }
 
   .cve-score {
@@ -165,44 +252,8 @@ const finders = (n: number) =>
     font-variant-numeric: tabular-nums;
   }
 
-  .cve-type {
-    grid-area: type;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--color-text-primary);
-  }
-
-  .cve-product {
-    grid-area: product;
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
-  }
-
-  .cve-id {
-    grid-area: id;
-    justify-self: end;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-    transition: color 0.2s ease;
-  }
-
-  .cve:hover .cve-id {
-    color: var(--color-accent);
-  }
-
-  .cve-finders {
-    grid-area: finders;
-    justify-self: end;
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-  }
-
   @media (max-width: 760px) {
-    .cve-list {
+    .entry-list {
       grid-template-columns: minmax(0, 1fr);
       grid-template-rows: none;
       grid-auto-flow: row;
@@ -217,17 +268,16 @@ const finders = (n: number) =>
     .cve {
       grid-template-columns: 2.5rem auto minmax(0, 1fr);
       grid-template-areas:
-        "score type type"
-        "score product product"
-        "score id finders";
+        "score title title"
+        "score sub sub"
+        "score ref meta";
     }
 
-    .cve-id {
+    .cve .entry-ref {
       justify-self: start;
-      white-space: nowrap;
     }
 
-    .cve-finders {
+    .cve .entry-meta {
       text-align: right;
     }
   }

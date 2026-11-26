@@ -165,6 +165,19 @@ export const en = {
           sfb: "Security feature bypass",
         },
       },
+      oss: {
+        title: "Open-source contributions",
+        note: "Changes merged into Minecraft server plugins by their maintainers.",
+        badge: "{n} merged PRs",
+        date: "2025–2026",
+        prs: {
+          redprotect_locks: "Fixed private container locks being bypassed through nearby blocks",
+          skript: "Made “all players” return only online players",
+          boar: "Stopped infinite mob effects from being dropped right away",
+          redprotect_lectern: "Made lectern books readable in protected regions",
+          displaynametags: "Added text entity data to the default config",
+        },
+      },
       upercase: {
         date: "2025",
         title: "UPER CASE IB 2025",

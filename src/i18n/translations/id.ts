@@ -165,6 +165,19 @@ export const id = {
                     sfb: "Security feature bypass",
                 },
             },
+            oss: {
+                title: "Kontribusi open source",
+                note: "Perubahan yang diterima pengelola plugin server Minecraft.",
+                badge: "{n} PR diterima",
+                date: "2025–2026",
+                prs: {
+                    redprotect_locks: "Memperbaiki kunci kontainer privat yang bisa ditembus lewat blok di sekitarnya",
+                    skript: "Membuat “all players” hanya mengembalikan pemain yang sedang online",
+                    boar: "Mencegah efek mob tanpa batas waktu langsung dihapus",
+                    redprotect_lectern: "Membuat buku di lectern bisa dibaca di region yang dilindungi",
+                    displaynametags: "Menambahkan data text entity ke konfigurasi bawaan",
+                },
+            },
             upercase: {
                 date: "2025",
                 title: "UPER CASE IB 2025",
