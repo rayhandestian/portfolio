@@ -178,6 +178,31 @@ export const en = {
           displaynametags: "Added text entity data to the default config",
         },
       },
+      buildevents: {
+        title: "Minecraft build competitions",
+        badge: "2 events",
+        date: "2024–2026",
+        description: "Two Independence Day build competitions I organized on the Kaizen Network Creative server.",
+        link: "View event",
+        link_winners: "View winners",
+        labels: {
+          entries: "Entries",
+          judges: "Judges",
+          prizes: "Prizes",
+        },
+        e2024: {
+          theme: "Architectures of Nusantara",
+          judges: "5 from the Kaizen Network team",
+          prizes: "Rp3,000,000",
+          image: "Cover of the 2024 build competition",
+        },
+        e2026: {
+          theme: "Nusantara Reimagined",
+          judges: "3 outside content creators",
+          prizes: "Rp6,000,000, with a main sponsor",
+          image: "Winners of the 2026 build competition",
+        },
+      },
       upercase: {
         date: "2025",
         title: "UPER CASE IB 2025",

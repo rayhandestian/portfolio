@@ -37,6 +37,12 @@ const mergedMonth = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-GB', {
   timeZone: 'UTC',
 });
 
+// The two build competitions, oldest first.
+const buildEvents = [
+  { key: "e2024", year: 2024, entries: 33, image: "/images/achievements/build-event-2024-1920-1080.webp", links: [{ href: "https://kaizenmc.id/blog/kaizen-network-creative-server-build-event-2024", label: "link" }] },
+  { key: "e2026", year: 2026, entries: 46, image: "/images/achievements/build-event-2026-winners-1600-900.webp", links: [{ href: "https://kaizenmc.id/blog/event-build-kemerdekaan-2026", label: "link" }, { href: "https://kaizenmc.id/blog/pemenang-event-build-kemerdekaan-2026", label: "link_winners" }] },
+];
+
 const rows = (n: number) => `--rows: ${Math.ceil(n / 2)}`;
 ---
 
@@ -92,6 +98,38 @@ const rows = (n: number) => `--rows: ${Math.ceil(n / 2)}`;
             </li>
           ))}
         </ul>
+      </article>
+
+      <article class="achievement card">
+        <div class="achievement-meta">
+          <span class="achievement-badge">{t('achievements.items.buildevents.badge')}</span>
+          <span class="achievement-date">{t('achievements.items.buildevents.date')}</span>
+        </div>
+        <h3 class="achievement-title">{t('achievements.items.buildevents.title')}</h3>
+        <p class="achievement-description">{t('achievements.items.buildevents.description')}</p>
+        <div class="events">
+          {buildEvents.map(ev => (
+            <section class="event">
+              <button type="button" class="event-image-button" aria-haspopup="dialog" data-lightbox={ev.image}>
+                <img class="event-image" src={ev.image} alt={t(`achievements.items.buildevents.${ev.key}.image`)} width="1920" height="1080" loading="lazy" />
+              </button>
+              <h4 class="event-title"><span class="event-year">{ev.year}</span> {t(`achievements.items.buildevents.${ev.key}.theme`)}</h4>
+              <dl class="event-facts">
+                <dt>{t('achievements.items.buildevents.labels.entries')}</dt><dd>{ev.entries}</dd>
+                <dt>{t('achievements.items.buildevents.labels.judges')}</dt><dd>{t(`achievements.items.buildevents.${ev.key}.judges`)}</dd>
+                <dt>{t('achievements.items.buildevents.labels.prizes')}</dt><dd>{t(`achievements.items.buildevents.${ev.key}.prizes`)}</dd>
+              </dl>
+              <div class="event-links">
+                {ev.links.map(l => (
+                  <a href={l.href} target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    {t(`achievements.items.buildevents.${l.label}`)}
+                  </a>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
       </article>
 
       <article class="achievement card">
@@ -156,6 +194,98 @@ const rows = (n: number) => `--rows: ${Math.ceil(n / 2)}`;
 
   .achievement-link {
     margin-top: var(--space-md);
+  }
+
+  .achievement-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  /* Build competitions: one section per event, side by side from 760px up. */
+  .events {
+    display: grid;
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
+  }
+
+  @media (min-width: 760px) {
+    .events {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .event {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .event-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border-radius: var(--radius-md);
+    cursor: zoom-in;
+  }
+
+  .event-image-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .event-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: border-color 0.2s ease;
+  }
+
+  .event-image-button:hover .event-image {
+    border-color: var(--color-accent);
+  }
+
+  .event-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .event-year {
+    font-family: var(--font-mono, monospace);
+    color: var(--color-accent);
+    margin-right: 0.35rem;
+  }
+
+  .event-facts {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: var(--space-md);
+    font-size: 0.875rem;
+  }
+
+  .event-facts dt,
+  .event-facts dd {
+    padding: 0.4rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .event-facts dt {
+    color: var(--color-text-secondary);
+  }
+
+  .event-facts dd {
+    color: var(--color-text-primary);
+  }
+
+  .event-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-xs);
   }
 
   /* Fill the left column top to bottom, then the right one. */

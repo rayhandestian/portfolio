@@ -178,6 +178,31 @@ export const id = {
                     displaynametags: "Menambahkan data text entity ke konfigurasi bawaan",
                 },
             },
+            buildevents: {
+                title: "Lomba build Minecraft",
+                badge: "2 event",
+                date: "2024–2026",
+                description: "Dua lomba build HUT RI yang saya selenggarakan di server Creative Kaizen Network.",
+                link: "Lihat event",
+                link_winners: "Lihat pemenang",
+                labels: {
+                    entries: "Karya",
+                    judges: "Juri",
+                    prizes: "Hadiah",
+                },
+                e2024: {
+                    theme: "Architectures of Nusantara",
+                    judges: "5 dari tim Kaizen Network",
+                    prizes: "Rp3.000.000",
+                    image: "Sampul lomba build 2024",
+                },
+                e2026: {
+                    theme: "Nusantara Reimagined",
+                    judges: "3 content creator dari luar",
+                    prizes: "Rp6.000.000, dengan sponsor utama",
+                    image: "Pemenang lomba build 2026",
+                },
+            },
             upercase: {
                 date: "2025",
                 title: "UPER CASE IB 2025",
