@@ -68,7 +68,11 @@ const { title, tagline, description, stack = [], link, github, image, extraLinks
         </div>
       )}
     </div>
-    {image && <img class="project-image" src={image} alt={`${title} screenshot`} width="1920" height="1080" loading="lazy" />}
+    {image && (
+      <button type="button" class="project-image-button" aria-haspopup="dialog" data-lightbox={image}>
+        <img class="project-image" src={image} alt={`${title} screenshot`} width="1920" height="1080" loading="lazy" />
+      </button>
+    )}
   </div>
 </details>
 
@@ -167,12 +171,30 @@ const { title, tagline, description, stack = [], link, github, image, extraLinks
     margin-top: var(--space-md);
   }
 
+  .project-image-button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border-radius: var(--radius-md);
+    cursor: zoom-in;
+  }
+
+  .project-image-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
   .project-image {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
+    transition: border-color 0.2s ease;
+  }
+
+  .project-image-button:hover .project-image {
+    border-color: var(--color-accent);
   }
 
   @media (prefers-reduced-motion: reduce) {

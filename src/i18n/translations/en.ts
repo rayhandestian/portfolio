@@ -21,6 +21,8 @@ export const en = {
     title: "Projects",
     subtitle: "A selection of work I'm proud of.",
     count: "{n} projects",
+    lightbox_zoom: "Zoom in or out",
+    lightbox_close: "Close",
     groups: {
       plugins: "Minecraft plugins",
       web: "Web apps",

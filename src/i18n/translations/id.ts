@@ -21,6 +21,8 @@ export const id = {
         title: "Proyek",
         subtitle: "Kumpulan karya yang saya banggakan.",
         count: "{n} proyek",
+        lightbox_zoom: "Perbesar atau perkecil",
+        lightbox_close: "Tutup",
         groups: {
             plugins: "Plugin Minecraft",
             web: "Aplikasi web",
