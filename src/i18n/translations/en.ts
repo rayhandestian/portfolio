@@ -29,7 +29,7 @@ export const en = {
     groups: {
       plugins: "Minecraft plugins",
       web: "Web apps",
-      other: "Mobile, IoT, and machine learning",
+      other: "Mobile, IoT, and AI",
     },
     featured: {
       title: "Kaizen Network",
@@ -96,6 +96,11 @@ export const en = {
         title: "UPer.li",
         tagline: "URL shortener for Universitas Pertamina",
         description: "University-exclusive URL shortener for Universitas Pertamina. Features role-based auth, 2FA, QR codes, analytics dashboard, and Google Safe Browsing integration.",
+      },
+      sparky: {
+        title: "Sparky",
+        tagline: "AI assistant for players on Discord and the web",
+        description: "AI assistant that answers Kaizen Network players on Discord and the website. It searches the server's knowledge base and the Minecraft wiki, remembers Discord users, and reads attached images.",
       },
       quickbites: {
         title: "QuickBites",

@@ -29,7 +29,7 @@ export const id = {
         groups: {
             plugins: "Plugin Minecraft",
             web: "Aplikasi web",
-            other: "Mobile, IoT, dan machine learning",
+            other: "Mobile, IoT, dan AI",
         },
         featured: {
             title: "Kaizen Network",
@@ -96,6 +96,11 @@ export const id = {
                 title: "UPer.li",
                 tagline: "Penyingkat URL untuk Universitas Pertamina",
                 description: "Penyingkat URL eksklusif universitas untuk Universitas Pertamina. Menampilkan autentikasi berbasis peran, 2FA, kode QR, dashboard analitik, dan integrasi Google Safe Browsing.",
+            },
+            sparky: {
+                title: "Sparky",
+                tagline: "Asisten AI untuk pemain di Discord dan web",
+                description: "Asisten AI yang menjawab pemain Kaizen Network di Discord dan situs web. Sparky mencari di basis pengetahuan server dan wiki Minecraft, mengingat pengguna Discord, serta membaca gambar yang dilampirkan.",
             },
             quickbites: {
                 title: "QuickBites",
