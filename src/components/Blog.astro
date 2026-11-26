@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: 'en' | 'id';
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const LIMIT = 3;
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const dateFormat = new Intl.DateTimeFormat(lang === 'id' ? 'id-ID' : 'en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+// The posts are written in English only.
+const postLang = lang === 'en' ? undefined : 'en';
+---
+
+<section class="section" id="blog">
+  <div class="container">
+    <h2 class="section-title">{t('blog.title')}</h2>
+    <p class="section-subtitle">{t('blog.subtitle')}</p>
+    <div class="posts">
+      <ul class="post-list">
+        {posts.slice(0, LIMIT).map((post) => (
+          <li>
+            <a class="post" href={`/blog/${post.id}`}>
+              <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+                {dateFormat.format(post.data.pubDate)}
+              </time>
+              <h3 class="post-title" lang={postLang}>{post.data.title}</h3>
+              <p class="post-summary" lang={postLang}>{post.data.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {posts.length > LIMIT && (
+        <a class="posts-all" href="/blog">{t('blog.all')}</a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Same column as the About text above, so the two read as one block. */
+  .posts {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .post-list {
+    list-style: none;
+  }
+
+  .post-list li + li {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .post {
+    display: block;
+    padding: var(--space-lg) 0;
+  }
+
+  .post-list li:first-child .post {
+    padding-top: 0;
+  }
+
+  .post:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .post-date {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
+  }
+
+  .post-title {
+    margin-top: var(--space-xs);
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    transition: color 0.2s ease;
+  }
+
+  .post:hover .post-title {
+    color: var(--color-accent);
+  }
+
+  .post-summary {
+    margin-top: var(--space-xs);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .posts-all {
+    display: inline-block;
+    margin-top: var(--space-sm);
+    font-weight: 500;
+    color: var(--color-accent);
+  }
+
+  .posts-all:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .posts-all:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+</style>

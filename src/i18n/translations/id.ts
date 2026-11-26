@@ -165,6 +165,11 @@ export const id = {
             },
         }
     },
+    blog: {
+        title: "Blog",
+        subtitle: "Tulisan tentang software, privasi dan sistem yang saya bangun, dalam bahasa Inggris.",
+        all: "Semua tulisan",
+    },
     about: {
         title: "Tentang",
         paragraphs: [

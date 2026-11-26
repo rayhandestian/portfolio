@@ -165,6 +165,11 @@ export const en = {
       },
     }
   },
+  blog: {
+    title: "Blog",
+    subtitle: "Writing on software, privacy and the systems I build.",
+    all: "All posts",
+  },
   about: {
     title: "About",
     paragraphs: [
