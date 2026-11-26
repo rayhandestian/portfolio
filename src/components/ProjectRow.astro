@@ -22,13 +22,14 @@ interface Props {
   github?: string;
   image?: string;
   extraLinks?: ExtraLink[];
+  open?: boolean;
 }
 
-const { lang, title, tagline, description, stack = [], link, github, image, extraLinks = [] } = Astro.props;
+const { lang, title, tagline, description, stack = [], link, github, image, extraLinks = [], open = false } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<details class="project">
+<details class="project" open={open}>
   <summary class="project-summary">
     <span class="project-heading">
       <span class="project-title">{title}</span>

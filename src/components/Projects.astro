@@ -288,7 +288,7 @@ const projectGroups = [
             <span class="project-group-count">{String(t('projects.count')).replace('{n}', String(group.items.length))}</span>
           </div>
           <div>
-            {group.items.map(item => (
+            {group.items.map((item, i) => (
               <ProjectRow
                 lang={lang}
                 title={t(`projects.list.${item.key}.title`)}
@@ -299,6 +299,7 @@ const projectGroups = [
                 github={item.github}
                 image={item.image}
                 extraLinks={item.extraLinks}
+                open={i === 0}
               />
             ))}
           </div>
