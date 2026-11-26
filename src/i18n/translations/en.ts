@@ -29,11 +29,11 @@ export const en = {
     groups: {
       plugins: "Minecraft plugins",
       web: "Web apps",
-      other: "Mobile, IoT and machine learning",
+      other: "Mobile, IoT, and machine learning",
     },
     featured: {
       title: "Kaizen Network",
-      description: "Indonesian Minecraft Server Network, founded and run solo since 2022. Built a full-stack e-commerce website, custom Java Spigot & Velocity plugins, various Skript scripts, Discord bots, and managed cloud infrastructure.",
+      description: "Indonesian Minecraft Server Network, founded and run solo since 2022. Built a full-stack e-commerce website, custom Java Spigot and Velocity plugins, various Skript scripts, Discord bots, and managed cloud infrastructure.",
       button: "Visit Website",
       stats: {
         players: "Peak concurrent players",
@@ -47,38 +47,38 @@ export const en = {
       },
       web_platform: {
         title: "Web Platform",
-        description: "Next.js, TypeScript and MongoDB store and website with Tripay and Midtrans payments, webhook confirmation, automated in-game fulfillment and a JWT-authenticated admin panel. Added rate limiting and Turnstile bot protection.",
+        description: "Next.js, TypeScript, and MongoDB store and website with Tripay and Midtrans payments, webhook confirmation, automated in-game fulfillment, and a JWT-authenticated admin panel. Added rate limiting and Turnstile bot protection.",
       },
       infrastructure: {
         title: "Infrastructure",
-        description: "Deploy and operate game servers, databases and Discord bots on Linux, Docker and Pterodactyl, with MariaDB and Redis. HetrixTools reported 99.95% average monitor uptime over the 30 days to 12 September 2026, excluding maintenance.",
+        description: "Deploy and operate game servers, databases, and Discord bots on Linux, Docker, and Pterodactyl, with MariaDB and Redis. HetrixTools reported 99.95% average monitor uptime over the 30 days to 12 September 2026, excluding maintenance.",
       }
     },
     list: {
       consentgate: {
         title: "ConsentGate",
         tagline: "In-game rules and policy agreements",
-        description: "Shows a server's rules and policies to players before they can play, and records their acceptance. Runs on Velocity, Paper and Spigot, with translated and versioned documents and Bedrock forms through Geyser. No website or extra hosting needed.",
+        description: "Shows a server's rules and policies to players before they can play, and records their acceptance. Runs on Velocity, Paper, and Spigot, with translated and versioned documents and Bedrock forms through Geyser. No website or extra hosting needed.",
       },
       origingate: {
         title: "OriginGate",
-        tagline: "VPN, proxy and country checks at login",
-        description: "Kicks VPN, proxy and out-of-country players at login on Bukkit, Spigot, Paper, BungeeCord and Velocity. Combines IP data from several providers or a local MaxMind file, saves each lookup, and has a dry-run mode for testing rules.",
+        tagline: "VPN, proxy, and country checks at login",
+        description: "Kicks VPN, proxy, and out-of-country players at login on Bukkit, Spigot, Paper, BungeeCord, and Velocity. Combines IP data from several providers or a local MaxMind file, saves each lookup, and has a dry-run mode for testing rules.",
       },
       nexusshout: {
         title: "NexusShout",
         tagline: "Global chat across a proxy network",
-        description: "Global chat plugin for Velocity and BungeeCord that lets players talk across every server on a network, with anti-spam and mute support, private messages and Discord integration.",
+        description: "Global chat plugin for Velocity and BungeeCord that lets players talk across every server on a network, with anti-spam and mute support, private messages, and Discord integration.",
       },
       minecraftserver_id: {
         title: "MinecraftServer.ID",
         tagline: "Minecraft server listing for Indonesia",
-        description: "Server listing site for the Indonesian Minecraft community. A Next.js frontend, an Express REST API and BullMQ background workers share TypeScript types and Zod validators in a Turborepo monorepo, with PostgreSQL and Redis.",
+        description: "Server listing site for the Indonesian Minecraft community. A Next.js frontend, an Express REST API, and BullMQ background workers share TypeScript types and Zod validators in a Turborepo monorepo, with PostgreSQL and Redis.",
       },
       thesis: {
         title: "Privacy Features for Kaizen Network",
         tagline: "Undergraduate thesis on UU PDP privacy features",
-        description: "Undergraduate thesis implementing privacy features based on Indonesia's Personal Data Protection Law (UU PDP): in-game consent, a Next.js portal for data access and deletion, audit trails and automated retention.",
+        description: "Undergraduate thesis implementing privacy features based on Indonesia's Personal Data Protection Law (UU PDP): in-game consent, a Next.js portal for data access and deletion, audit trails, and automated retention.",
         link_thesis: "Read thesis",
         link_poster: "View poster",
       },
@@ -90,7 +90,7 @@ export const en = {
       cloudshort: {
         title: "Cloudshort",
         tagline: "Private URL shortener on Cloudflare Workers",
-        description: "Private URL shortener built with TypeScript, Cloudflare Workers and Hono. Uses KV-backed redirects, D1 click analytics and a React admin dashboard protected by JWT/cookie authentication.",
+        description: "Private URL shortener built with TypeScript, Cloudflare Workers, and Hono. Uses KV-backed redirects, D1 click analytics, and a React admin dashboard protected by JWT/cookie authentication.",
       },
       uperli: {
         title: "UPer.li",
@@ -125,13 +125,13 @@ export const en = {
     subtitle: "Tools and skills behind my projects.",
     categories: {
       languages: "Languages",
-      frameworks: "Frameworks & Libraries",
+      frameworks: "Frameworks and Libraries",
       web: "Web Development",
-      security: "Security & Privacy",
+      security: "Security and Privacy",
       game_dev: "Minecraft Development",
-      databases: "Databases & Storage",
-      devops: "DevOps & Cloud",
-      other: "Data, ML & IoT",
+      databases: "Databases and Storage",
+      devops: "DevOps and Cloud",
+      other: "Data, ML, and IoT",
     },
     items: {
       payments: "Payment Integration",
@@ -170,16 +170,16 @@ export const en = {
   },
   blog: {
     title: "Blog",
-    subtitle: "Writing on software, privacy and the systems I build.",
+    subtitle: "Writing on software, privacy, and the systems I build.",
     all: "All posts",
   },
   about: {
     title: "About",
     paragraphs: [
-      "I'm the founder and sole developer of <strong>Kaizen Network</strong>, an Indonesian Minecraft server network I've run since 2022. It has grown to 100,000+ registered accounts and 150 peak concurrent players. I own the whole stack: TypeScript/Next.js applications, payment integrations, custom Java plugins and cloud operations, from implementation to deployment.",
+      "I'm the founder and sole developer of <strong>Kaizen Network</strong>, an Indonesian Minecraft server network I've run since 2022. It has grown to 100,000+ registered accounts and 150 peak concurrent players. I own the whole stack: TypeScript/Next.js applications, payment integrations, custom Java plugins, and cloud operations, from implementation to deployment.",
       "I graduated in Computer Science from <strong>Universitas Pertamina</strong> (Indonesia) in August 2026. My thesis implemented privacy features for online game platforms based on UU PDP.",
       "I also founded <strong>Packvertise</strong>, an ad-on-packaging startup that reached the top 7 of 31 teams at UPER CASE IB 2025.",
-      "On the side, I do security research, with seven Microsoft-credited vulnerability finds in Visual Studio Code, Windows PowerShell and .NET. I also explore AI/ML and dabble in IoT."
+      "On the side, I do security research, with seven Microsoft-credited vulnerability finds in Visual Studio Code, Windows PowerShell, and .NET. I also explore AI/ML and dabble in IoT."
     ]
   },
   contact: {
