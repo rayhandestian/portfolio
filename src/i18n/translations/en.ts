@@ -23,6 +23,9 @@ export const en = {
     count: "{n} projects",
     lightbox_zoom: "Zoom in or out",
     lightbox_close: "Close",
+    visit: "Visit Website",
+    source: "Source",
+    image: "Image of {title}",
     groups: {
       plugins: "Minecraft plugins",
       web: "Web apps",

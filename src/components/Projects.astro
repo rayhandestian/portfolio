@@ -238,7 +238,7 @@ const projectGroups = [
     <div class="featured-group">
       <div class="featured-image">
         <button type="button" class="featured-image-button" aria-haspopup="dialog" data-lightbox="/images/projects/kaizenmc-website-1920-1080.webp">
-          <img src="/images/projects/kaizenmc-website-1920-1080.webp" alt="Kaizen Network Website" loading="lazy" />
+          <img src="/images/projects/kaizenmc-website-1920-1080.webp" alt={String(t('projects.image')).replace('{title}', t('projects.featured.title'))} loading="lazy" />
         </button>
       </div>
       <div class="featured-content">
@@ -290,6 +290,7 @@ const projectGroups = [
           <div>
             {group.items.map(item => (
               <ProjectRow
+                lang={lang}
                 title={t(`projects.list.${item.key}.title`)}
                 tagline={t(`projects.list.${item.key}.tagline`)}
                 description={t(`projects.list.${item.key}.description`)}

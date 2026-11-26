@@ -23,6 +23,9 @@ export const id = {
         count: "{n} proyek",
         lightbox_zoom: "Perbesar atau perkecil",
         lightbox_close: "Tutup",
+        visit: "Kunjungi Situs",
+        source: "Kode Sumber",
+        image: "Gambar {title}",
         groups: {
             plugins: "Plugin Minecraft",
             web: "Aplikasi web",
